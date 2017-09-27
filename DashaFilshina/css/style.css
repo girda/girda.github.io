@@ -22,6 +22,14 @@
   font-weight: 700;
 }
 
+.page-main iframe {
+  min-height: 450px;
+}
+
+.iframe-main {
+  padding: 0;
+}
+
 @media (min-width: 320px) and (max-width: 414px) {
   .page-header h1 {
      font-size: 26px;
@@ -30,4 +38,29 @@
 .page-header h2 {
   font-size: 14px;
 }
+}
+
+@media (min-width: 744px) {
+  .row-main {
+    margin: 0;
+}
+
+}
+
+@media (min-width: 414px) {
+    .page-main iframe {
+  min-height: 600px;
+}
+}
+
+.inner-main h2 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.inner-main iframe {
+  width: 100%;
+  min-width: 260px;
+  min-height: 200px;
 }
