@@ -1,0 +1,56 @@
+/* RESET */
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input{margin:0;padding:0}h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,th{font-weight:normal;font-style:normal}ul,ol{list-style:none}fieldset,img{border:none}caption,th{text-align:left}table{border-collapse:collapse;border-spacing:0}
+
+html {
+  overflow: -moz-scrollbars-vertical !important;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+
+/*
+ * Layout
+ */
+/*#page {
+  margin: 0 auto;
+  width: 800px;
+  padding: 50px 20px;
+  clear: both;
+}
+
+@media all and (max-width: 800px) {
+  #page { width: 100%; }
+}
+
+.demonstrations { 
+  float: left;
+  clear: both; 
+  width: 100%;  
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.demonstrations a {
+  margin-bottom: 20px;
+  border: 2px solid #eeeeee;
+  cursor: pointer;
+  text-decoration: none;
+}
+.demonstrations a img { 
+  width: 300px;
+  height: 200px; 
+}
+
+.demonstrations a p {
+  padding: 10px
+}
+
+.demonstrations .rightmost { 
+  margin-right: 0; 
+}
+
