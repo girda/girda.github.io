@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <link rel="stylesheet" href="css/normalize.css">
+
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
-    <title>Пинк</title>
-  <title>Document</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+  <title>Video</title>
 </head>
 <body>
   <header>
@@ -83,6 +88,27 @@
   <foter>
     
   </foter>
+    
+    <a href="#" class="scrollup">Наверх</a>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+         
+        $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+        $('.scrollup').fadeIn();
+        } else {
+        $('.scrollup').fadeOut();
+        }
+        });
+         
+        $('.scrollup').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+        });
+         
+        });
+      </script>
 
   <script>
         var navMain = document.querySelector(".main-nav");

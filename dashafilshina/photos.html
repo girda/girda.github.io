@@ -3,20 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
   <link rel="stylesheet" href="css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   
-  <!-- jQuery -->
-  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-
-  <!-- Fotorama -->
-  <link href="css/fotorama.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/fotorama.js"></script>
 
   <!--Fresco-->
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/fresco/fresco.js"></script>
   <link rel="stylesheet" type="text/css" href="css/fresco/fresco.css"/>
   <meta name="robots" content="noindex,nofollow" />
@@ -68,26 +63,10 @@
   <foter>
     
   </foter>
-    <a href="#" class="scrollup">Наверх</a>
-  <script src="js/nav.js">
-        /*var navMain = document.querySelector(".main-nav");
-        var navToggler = document.querySelector(".main-nav__toggler");
-        
-        navMain.classList.remove("main-nav--opened");
-        navMain.classList.add("main-nav--closed");
-        
-        navToggler.addEventListener("click", function(){
-          if(navMain.classList.contains("main-nav--closed")) {
-            navMain.classList.remove("main-nav--closed");
-            navMain.classList.add("main-nav--opened");
-          } else {
-            navMain.classList.add("main-nav--closed");
-            navMain.classList.remove("main-nav--opened");
-          }
-          });*/
-      </script>
 
-      <script type="text/javascript">
+    <a href="#" class="scrollup">Наверх</a>
+    
+    <script type="text/javascript">
         $(document).ready(function(){
          
         $(window).scroll(function(){
@@ -104,6 +83,24 @@
         });
          
         });
+      </script>
+
+      <script>
+        var navMain = document.querySelector(".main-nav");
+        var navToggler = document.querySelector(".main-nav__toggler");
+        
+        navMain.classList.remove("main-nav--opened");
+        navMain.classList.add("main-nav--closed");
+        
+        navToggler.addEventListener("click", function(){
+          if(navMain.classList.contains("main-nav--closed")) {
+            navMain.classList.remove("main-nav--closed");
+            navMain.classList.add("main-nav--opened");
+          } else {
+            navMain.classList.add("main-nav--closed");
+            navMain.classList.remove("main-nav--opened");
+          }
+          });
       </script>
       
 </body>
