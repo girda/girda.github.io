@@ -134,11 +134,13 @@ li {
 }
 
 .video__item {
+  width: 300px;
   margin-bottom: 20px;
   border: 2px solid #eeeeee;
 }
 
 .video__item p {
+  font-weight: 700;
   padding: 10px;
 }
 
