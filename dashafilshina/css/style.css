@@ -139,6 +139,10 @@ li {
   border: 2px solid #eeeeee;
 }
 
+iframe {
+  background-color: #000;
+}
+
 .video__item p {
   font-weight: 700;
   padding: 10px;
