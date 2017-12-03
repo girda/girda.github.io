@@ -298,6 +298,27 @@ button:hover {
 	background-color: #333743;
 }
 
+.check {
+	position: absolute;
+	top: 7px;
+	left: -20px;
+
+	display: block;
+	width: 10px;
+	height: 10px;
+
+	border: 1px solid #aeb2ba;
+	border-radius: 50%;
+}
+
+.check.active {
+	border: 1px solid #333743;
+	background-color: #333743;
+	background-image: url("img/сheck.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
 .btn {
 	display: block;
 	padding: 15px 0;
@@ -582,5 +603,10 @@ main {
 	.main-nav__toggler {
 		left: 64px;
 	}
+
+	.check {
+	top: 7px;
+	left: 70px;
+}
 }
 
