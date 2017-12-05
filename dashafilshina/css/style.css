@@ -148,6 +148,16 @@ iframe {
   padding: 10px;
 }
 
+.dresser span {
+  font-size: 12px;
+  color: grey;
+}
+
+.dresser {
+  font-size: 14px;
+  color: black;
+}
+
 .demonstrations {  
   display: flex;
   flex-wrap: wrap;
