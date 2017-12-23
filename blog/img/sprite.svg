@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>
+        <style>
+            .cls-1{fill:#fff;fill-rule:evenodd}
+        </style>
+    </defs><symbol id="icon-facebook" viewBox="0 0 10 19">
+    <title>
+        facebook
+    </title>
+    <path d="M9.766.157v2.946H8.014c-.64 0-1.071.134-1.295.402-.223.268-.335.67-.335 1.205v2.11h3.27l-.435 3.303H6.384v8.471H2.97v-8.47H.123V6.82H2.97V4.387c0-1.384.387-2.457 1.161-3.22C4.904.404 5.934.023 7.222.023c1.093 0 1.941.045 2.544.134z" fill-rule="evenodd"/>
+</symbol><symbol id="icon-icon1" viewBox="0 0 28 33">
+    <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAhAgMAAAC3hyN0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEUAAAD///////8AAAA4fh26AAAAAnRSTlMA8iUgXggAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAALklEQVQY02NYGgoEGQwMMHoBAxBoYKE1QQqiELQGSIKL7vSqFUTSEMDAoEUUDQBTwDU1EuigzAAAAABJRU5ErkJggg==" width="28" height="33"/>
+</symbol><symbol id="icon-icon2" viewBox="0 0 29 33">
+    <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAhCAMAAAAS9VDrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAASFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////8AAADnxl6iAAAAFnRSTlMALaVa9jbkG8kJePxO8NsVvQaW7Pf1DsS9WwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABfSURBVCjP7dA3EoAwEEPRtVlyTrr/USlgwAajwhUFv32jRoJHYuQsoDahqqmjcssiy5miKJnCUkVFtW6YojVM0fVMMYxMMR06X095BbaO7Lr4V6++/tsvbKP1vWhV1Q39kyXXF0mBwgAAAABJRU5ErkJggg==" width="29" height="33"/>
+</symbol><symbol id="icon-icon3" viewBox="0 0 31.125 39.47">
+    
+    <path d="M30.709 9.741l-5.68 9.837a3.244 3.244 0 0 1-4.433 1.188l-1.406-.811 1.623-2.811a1.623 1.623 0 0 0 2.217-.594l4.057-7.027a1.623 1.623 0 0 0-.594-2.217l-5.622-3.245a1.622 1.622 0 0 0-2.216.594l-4.058 7.027a1.622 1.622 0 0 0 .594 2.216l-1.622 2.811-1.406-.811a3.246 3.246 0 0 1-1.188-4.434l5.68-9.837A3.245 3.245 0 0 1 21.089.439l8.432 4.868a3.246 3.246 0 0 1 1.188 4.434zM11.511 26.765a1.624 1.624 0 0 1-.594-2.217l6.491-11.243a1.622 1.622 0 1 1 2.811 1.622L13.728 26.17a1.623 1.623 0 0 1-2.217.595zm-1.188-4.434a1.623 1.623 0 0 0-2.217.594l-4.057 7.027a1.624 1.624 0 0 0 .594 2.217l5.622 3.245a1.622 1.622 0 0 0 2.216-.594l4.058-7.027a1.624 1.624 0 0 0-.594-2.217h-.001l1.623-2.81 1.406.811a3.246 3.246 0 0 1 1.188 4.434l-5.68 9.837a3.245 3.245 0 0 1-4.434 1.188l-8.432-4.868a3.246 3.246 0 0 1-1.188-4.434l5.68-9.837a3.244 3.244 0 0 1 4.433-1.188l1.406.811-1.623 2.811z" class="cls-1"/>
+</symbol></svg>
