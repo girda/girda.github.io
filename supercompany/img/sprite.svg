@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon-card" viewBox="0 0 500 500">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon-arrowLeft" viewBox="0 0 512 512">
+    <path d="M352 115.4L331.3 96 160 256l171.3 160 20.7-19.3L201.5 256z"/>
+</symbol><symbol id="icon-arrowRight" viewBox="0 0 512 512">
+    <path d="M160 115.4L180.7 96 352 256 180.7 416 160 396.7 310.5 256z"/>
+</symbol><symbol id="icon-burger" viewBox="0 0 32 32">
+    <path class="cls-1" d="M3 9h26a2 2 0 0 0 0-4H3a2 2 0 0 0 0 4z"/>
+    <path class="cls-1" d="M29 14H3a2 2 0 0 0 0 4h26a2 2 0 0 0 0-4z"/>
+    <path class="cls-1" d="M29 23H3a2 2 0 0 0 0 4h26a2 2 0 0 0 0-4z"/>
+</symbol><symbol id="icon-card" viewBox="0 0 500 500">
     <path clip-rule="evenodd" d="M272.715 286.341H145.518c-12.538 0-22.715 10.179-22.715 22.715s10.177 22.716 22.715 22.716h127.197c12.537 0 22.712-10.18 22.712-22.716s-10.175-22.715-22.712-22.715zM31.949 386.284c0 20.079 16.264 36.34 36.34 36.34H431.71c20.078 0 36.34-16.261 36.34-36.34V113.718c0-20.079-16.262-36.343-36.34-36.343H68.29c-20.077 0-36.34 16.264-36.34 36.343v272.566zm65.418-263.482h305.267a19.936 19.936 0 0 1 19.99 19.991v25.438H77.375v-25.438a19.936 19.936 0 0 1 19.992-19.991zM77.375 240.914h345.249v116.292a19.938 19.938 0 0 1-19.99 19.992H97.367a19.937 19.937 0 0 1-19.991-19.992V240.914z" fill-rule="evenodd"/>
 </symbol><symbol id="icon-document" viewBox="0 0 18 18">
     <title/>
