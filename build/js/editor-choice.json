@@ -1,0 +1,28 @@
+{
+ "items": [
+   {
+    "img": "https://img.pravda.com/images/doc/b/1/b1425d4-putin-mussolini_276x170.jpg",
+    "title": "Третій Рим",
+    "date": "18 лютого 2018, 10:02",
+    "autor": "Павло Казарін"
+   },
+   {
+    "img": "https://img.pravda.com/images/doc/5/d/5da8468-putin_276x170.jpg",
+    "title": "Очима Путіна",
+    "date": "17 лютого 2018, 10:12",
+    "autor": "Михайло Дубиняньский"
+   },
+   {
+    "img": "https://img.pravda.com/images/doc/a/c/ac55106-2018_276x170.jpg",
+    "title": "Світ на межі конфлікту: сенсаційна доповідь Мюнхенської конференції про стан міжнародної безпеки",
+    "date": "15 лютого 2018, 14:02",
+    "autor": "Європейська правда"
+   },
+   {
+    "img": "https://img.pravda.com/images/doc/b/c/bc58bfa-saakashvili-tymoshenko-485_276x170.jpg",
+    "title": "50 відтінків опозиції, або Спроба об'єднатися без Саакашвілі",
+    "date": "14 лютого 2018, 18:02",
+    "autor": "Роман Романюк"
+   }
+ ]
+}
