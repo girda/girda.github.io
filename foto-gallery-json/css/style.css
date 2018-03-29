@@ -1,0 +1,82 @@
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    z-index: 100500;
+}
+
+#page-preloader .spinner {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url('../img/loader.gif') no-repeat 50% 50%;
+    margin: -16px 0 0 -16px;
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+* {
+    outline: none;
+}
+
+.slick-arrow {
+    position: absolute;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    font-size: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 10;
+}
+
+.slick-prev::before,
+.slick-prev::after,
+.slick-next::before,
+.slick-next::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 67px;
+    background-color: #ffffff;
+}   
+
+.slick-prev {
+    left: -100px;
+}
+.slick-prev::before {
+    transform: rotate(45deg);
+}
+.slick-prev::after {
+    top: 47px;
+    transform: rotate(-45deg);
+}        
+.slick-next {
+    right: -100px;
+}
+.slick-next::before {
+    transform: rotate(135deg);
+}
+.slick-next::after {
+    top: 47px;
+    transform: rotate(-135deg);
+}
+
+.slick-current > img {
+    width: 144px;
+    height: 144px;
+    border: 3px solid #00bcd4;
+}
