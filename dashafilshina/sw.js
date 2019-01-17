@@ -2,7 +2,8 @@ const staticAssets = [
     './index.html',
     './css/style.css',
     './video.html',
-    './contacts.html'
+    './contacts.html',
+    './movies.html'
 ]
 
 self.addEventListener('install', async event => {

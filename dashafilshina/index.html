@@ -39,7 +39,7 @@
     </nav>
   </header>`
   <main class="main">
-
+    <button class="test">Update</button>
   <div id="page">
     <div class="container foto-main demonstrations">
       <a href="img/image1.jpg"  class="fresco" data-fresco-group='example'><img src="img/image1.jpg" alt="" width="300" height="200"></a>
@@ -58,6 +58,7 @@
 
   <script>
         var navMain = document.querySelector(".main-nav");
+        var button = document.querySelector(".test");
         var navToggler = document.querySelector(".main-nav__toggler");
         
         navMain.classList.remove("main-nav--opened");
@@ -76,7 +77,10 @@
           if ( 'serviceWorker' in navigator ) {
             try {
               navigator.serviceWorker.register('sw.js')
-              console.log('SW registered');   
+              console.log('SW registered');
+              button.onclick = function() {
+                registration.update();
+              }
             } catch (error) {
               console.log('SW reg failed')
             }
