@@ -39,7 +39,6 @@
     </nav>
   </header>`
   <main class="main">
-    <button class="test">Update</button>
   <div id="page">
     <div class="container foto-main demonstrations">
       <a href="img/image1.jpg"  class="fresco" data-fresco-group='example'><img src="img/image1.jpg" alt="" width="300" height="200"></a>
@@ -78,9 +77,6 @@
             try {
               navigator.serviceWorker.register('sw.js')
               console.log('SW registered');
-              button.onclick = function() {
-                registration.update();
-              }
             } catch (error) {
               console.log('SW reg failed')
             }
