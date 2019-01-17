@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/check.png" type="image/png">
+  <link rel="manifest" href="/manifest.json">
     <title>Dasha Filshina</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
         </ul>
       </div>
     </nav>
-  </header>
+  </header>`
   <main class="main">
 
   <div id="page">
@@ -45,7 +46,7 @@
       <a href="img/image2.jpg"  class="fresco" data-fresco-group='example'><img src="img/image2.jpg" alt="" width="300" height="200"></a>
       <a href="img/image3.jpg"  class="fresco" data-fresco-group='example'><img src="img/image3.jpg" alt="" width="300" height="200"></a>
       <a href="img/image5.jpg"  class="fresco" data-fresco-group='example'><img src="img/image5.jpg" alt="" width="300" height="200"></a>
-      <a href="img/Dasha.jpg"  class="fresco" data-fresco-group='example'><img src="img/Dasha.jpg" class="dasha" alt="" width="320" height="320"></a>
+      <a href="img/Dasha.jpg"  class="fresco" data-fresco-group='example'><img src="img/Dasha.webp" class="dasha" alt="" width="320" height="320"></a>
       <a href="img/image6.jpg"  class="fresco" data-fresco-group='example'><img src="img/image6.jpg" alt="" width="300" height="200"></a>
       <a href="img/image7.jpg"  class="fresco" data-fresco-group='example'><img src="img/image7.jpg" alt="" width="300" height="200"></a>
       <a href="img/image8.jpg"  class="fresco" data-fresco-group='example'><img src="img/image8.jpg" alt="" width="300" height="200"></a>
@@ -54,9 +55,6 @@
   </div>
 
   </main>
-  <foter>
-    
-  </foter>
 
   <script>
         var navMain = document.querySelector(".main-nav");
@@ -74,6 +72,15 @@
             navMain.classList.remove("main-nav--opened");
           }
           });
+
+          if ( 'serviceWorker' in navigator ) {
+            try {
+              navigator.serviceWorker.register('sw.js')
+              console.log('SW registered');   
+            } catch (error) {
+              console.log('SW reg failed')
+            }
+          }
       </script>
 </body>
 </html>
