@@ -1,5 +1,5 @@
 const staticAssets = [
-    './',
+    './index.html',
     './css/fireworks.css',
     './js/fireworks.js',
     './js/requestanimframe.js'
