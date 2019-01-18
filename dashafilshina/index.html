@@ -86,21 +86,20 @@
           }
 
           let deferredPrompt;
+          window.addEventListener('beforeinstallprompt', event => {
 
-          let btnAdd = document.querySelector('.test')
-          window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent Chrome 67 and earlier from automatically showing the prompt
-            e.preventDefault();
+            event.preventDefault();
+
             // Stash the event so it can be triggered later.
-            deferredPrompt = e;
+            deferredPrompt = event;
 
-            btnAdd.style.display = 'block';
+            // Attach the install prompt to a user gesture
+            document.querySelector('.test').addEventListener('click', event => {
 
-            btnAdd.addEventListener('click', (e) => {
-              // hide our user interface that shows our A2HS button
-              btnAdd.style.display = 'none';
               // Show the prompt
               deferredPrompt.prompt();
+
               // Wait for the user to respond to the prompt
               deferredPrompt.userChoice
                 .then((choiceResult) => {
@@ -112,6 +111,9 @@
                   deferredPrompt = null;
                 });
             });
+
+            // Update UI notify the user they can add to home screen
+            document.querySelector('#installBanner').style.display = 'flex';
           });
 
           
