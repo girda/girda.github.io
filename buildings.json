@@ -1,0 +1,16 @@
+[
+{"buildingId": 1, "buildingCode": "01", "buildingName": "квартира в дво- або багатоквартирному будинку", "buildingParentId": null},
+{"buildingId": 2, "buildingCode": "02", "buildingName": "окрема квартира", "buildingParentId": 1},
+{"buildingId": 3, "buildingCode": "03", "buildingName": "комунальна квартира", "buildingParentId": 1},
+{"buildingId": 4, "buildingCode": "04", "buildingName": "квартира в нежитловій будівлі", "buildingParentId": null},
+{"buildingId": 5, "buildingCode": "05", "buildingName": "окрема квартира", "buildingParentId": 4},
+{"buildingId": 6, "buildingCode": "06", "buildingName": "комунальна квартира", "buildingParentId": 4},
+{"buildingId": 7, "buildingCode": "07", "buildingName": "одноквартирний будинок (індивідуальний)", "buildingParentId": null},
+{"buildingId": 8, "buildingCode": "08", "buildingName": "частина одноквартирного будинку (індивідуального)", "buildingParentId": null},
+{"buildingId": 9, "buildingCode": "09", "buildingName": "кімната (частина кімнати) у гуртожитку", "buildingParentId": null},
+{"buildingId": 10, "buildingCode": "10", "buildingName": "кімната (частина кімнати) у готелі", "buildingParentId": null},
+{"buildingId": 11, "buildingCode": "11", "buildingName": "установа із рухомим складом населення, окрім готелю (заклад охорони здоров’я, санаторно˗курортний заклад,...", "buildingParentId": null},
+{"buildingId": 12, "buildingCode": "12", "buildingName": "інше житлове приміщення", "buildingParentId": null},
+{"buildingId": 13, "buildingCode": "13", "buildingName": "не вказали тип житлового приміщення", "buildingParentId": null},
+{"buildingId": 14, "buildingCode": "99", "buildingName": "значення неможливо визначити", "buildingParentId": null}
+]
