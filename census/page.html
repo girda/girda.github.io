@@ -1,0 +1,1326 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Green Light</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" media="all" href="css/app.css" />
+    <link rel="manifest" href="/manifest.json">
+  </head>
+  <body>
+    <!-- BEGIN content -->
+    <div class="out">
+      <div class="root js-root">
+        <header class="header">
+          <div class="container">
+            <div class="header__in">
+              <div class="header__logo">
+                <img src="img/logo.png">
+              </div>
+              <h1 class="header__title">
+                <span>Пробний перепис населення України 2019 р</span>
+                <span>Інтернет-раунд</span>
+              </h1>
+            </div>
+          </div>
+        </header>
+        <div class="root__content">
+          <div class="container">
+            <div class="user-block">
+              <h1 class="user-block__title">Особистий кабiнет</h1>
+              <button type="button" class="user-block__btn btn-icon" data="census">
+                <span class="btn-icon__icon"><img src="img/stat.png"></span>
+                <span class="btn-icon__text">Про перепис</span>
+              </button>
+              <button type="button" class="user-block__btn btn-icon" data="save">
+                <span class="btn-icon__icon">
+                  <svg class="icon icon-save">
+                    <use xlink:href="img/sprite.svg#icon-save"></use>
+                  </svg>
+                </span>
+                <span class="btn-icon__text">Зберегти</span>
+              </button>
+              <button type="button" class="user-block__btn btn-icon" data="info">
+                <span class="btn-icon__icon">
+                  <svg class="icon icon-info">
+                    <use xlink:href="img/sprite.svg#icon-info"></use>
+                  </svg>
+                </span>
+                <span class="btn-icon__text">Пiдказка</span>
+              </button>
+              <div class="user-block__room">
+                <span class="user-block__room-title">Житлові умови</span>
+                <span class="user-block__room-text js-room-addr-label">Адреса: м. Київ, вул. Жилянська, 35, кв. 7</span>
+              </div>
+            </div>
+            <section class="section auth" data="section">
+              <div class="section__in">
+                <h3 class="section__title">Електронний пiдпис</h3>
+                <div class="section__content">
+                  <div class="section__row">
+                    <div class="section__subtitle">Центр сертифікації ключів:</div>
+                    <div class="section__el">
+                      <select class="select js-select-ca select-serch" id="CAsServersSelect">
+                        <option value>Оберіть центр сертифікації ключів</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="section__row">
+                    <div class="section__subtitle">Файл підпису:</div>
+                    <div class="section__el">
+                      <label class="input-file">
+                        <span class="js-keyfile-label">Оберіть кваліфікований підпис:</span>
+                        <input type="file" class="input-file__input" id="PKeyFileInput">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="section__row" id="PKCertsSelectZone">
+                    <div class="section__subtitle">Сертифікати</div>
+                    <div class="section__el">
+                      <label class="input-file">
+                        <span class="js-cert-label">Оберіть cертифікат:</span>
+                        <input type="file" class="input-file__input" id="PKCertsSelect" multiple>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="section__row">
+                    <div class="section__subtitle">Пароль:</div>
+                    <div class="section__el">
+                      <div class="input-pass">
+                        <input type="password" class="input-pass__input input" id="PKeyPassword" placeholder="Введіть пароль кваліфікованого підпису">
+                        <div class="input-pass__icon">
+                          <svg class="icon icon-password">
+                            <use xlink:href="img/sprite.svg#icon-password"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="section address" data="section">
+              <div class="section__in">
+                <h3 class="section__title">Адреса</h3>
+                <div class="section__content">
+                  <div class="section__row">
+                    <div class="section__subtitle">Регіон:</div>
+                    <div class="section__el">
+                      <select class="select js-select select-serch" id="r_region">
+                        <option value>Оберіть регіон</option>
+                        <option value="1">Автономна Республіка Крим</option>
+                        <option value="5">Вінницька область</option>
+                        <option value="7">Волинська область</option>
+                        <option value="12">Дніпропетровська область</option>
+                        <option value="14">Донецька область</option>
+                        <option value="18">Житомирська область</option>
+                        <option value="21">Закарпатська область</option>
+                        <option value="23">Запорізька область</option>
+                        <option value="26">Івано-Франківська область</option>
+                        <option value="80">Київ (міськрада)</option>
+                        <option value="32">Київська область</option>
+                        <option value="35">Кіровоградська область</option>
+                        <option value="44">Луганська область</option>
+                        <option value="46">Львівська область</option>
+                        <option value="48">Миколаївська область</option>
+                        <option value="51">Одеська область</option>
+                        <option value="53">Полтавська область</option>
+                        <option value="56">Рівненська область</option>
+                        <option value="85">Севастополь (міськрада)</option>
+                        <option value="59">Сумська область</option>
+                        <option value="61">Тернопільська область</option>
+                        <option value="63">Харківська область</option>
+                        <option value="65">Херсонська область</option>
+                        <option value="68">Хмельницька область</option>
+                        <option value="71">Черкаська область</option>
+                        <option value="73">Чернівецька область</option>
+                        <option value="74">Чернігівська область</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="section__row">
+                    <div class="section__subtitle">Населений пункт:</div>
+                    <div class="section__el">
+                      <select class="select js-select-city select-serch" id="r_city" disabled>
+                        <option value>Оберіть населений пункт</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="section__row">
+                    <div class="section__subtitle">Вулиця:</div>
+                    <div class="section__el">
+                      <select class="select js-select-street select-serch" id="r_street" disabled>
+                        <option value>Оберіть вулицю</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="section__row">
+                    <div class="section__col">
+                      <div class="section__subtitle">Будинок:</div>
+                      <div class="section__el">
+                        <select class="select js-select select-serch" disabled>
+                          <option value>Оберіть будинок</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="section__col">
+                      <div class="section__subtitle section__subtitle--small">Квартира:</div>
+                      <div class="section__el">
+                        <input type="text" class="input" placeholder="Введіть номер квартири" disabled="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section__row">
+                    <input type="button" class="navigation__item btn-blue-icon" value="Login bypass" onclick="document.querySelector('.js-nav_button.js-btn_next').click()">
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="room" data="section">
+              <form class="form-room js-form-room">
+                <div class="tabs js-tabs">
+                  <ul class="tabs__nav-title tabs__nav-title--left">
+                    <li class="circle is-active"><a href="#room-main-1">Запитання П1-П4</a></li>
+                    <li class="circle"><a href="#room-main-2">Запитання П5-П8</a></li>
+                    <li class="circle"><a href="#room-main-3">Запитання П9-П12</a></li>
+                    <li class="circle"><a href="#room-main-4">Запитання П13-П14</a></li>
+                  </ul>
+                  <div class="tabs__contents tabs__conteiner js-tabs-container">
+                    <div id="room-main-1" class="tabs__content is-active js-tab-content">
+                      <div class="tabs js-tabs">
+                        <ul class="tabs__nav-title">
+                          <li class="circle is-active"><a href="#room-1">П1. Тип приміщєння</a></li>
+                          <li class="circle"><a href="#room-2">П2. Загальна площа</a></li>
+                          <li class="circle"><a href="#room-3">П3. Водопостачання</a></li>
+                          <li class="circle"><a href="#room-4">П4. Туалет</a></li>
+                        </ul>
+                        <div class="tabs__contents tabs__contents--fix-height">
+                          <div id="room-1" class="tabs__content is-active js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title">П1. Тип будівлі та житлового приміщення</h2>
+                              <div class="form-room__flex">
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">квартира в дво- або багатоквартирному будинку</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-02" value="02" name="r_building_type">
+                                      <label class="radio__label" for="building-type-02">окрема квартира</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-03" value="03" name="r_building_type">
+                                      <label class="radio__label" for="building-type-03">комунальна квартира</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">квартира в нежитловій будівлі</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-05" value="05" name="r_building_type">
+                                      <label class="radio__label" for="building-type-05">окрема квартира</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-06" value="06" name="r_building_type">
+                                      <label class="radio__label" for="building-type-06">комунальна квартира</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">одноквартирний будинок</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-07" value="07" name="r_building_type">
+                                      <label class="radio__label" for="building-type-07">одноквартирний будинок (індивідуальний)</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-08" value="08" name="r_building_type">
+                                      <label class="radio__label" for="building-type-08">частина одноквартирного будинку (індивідуального)</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">кімната</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-09" value="09" name="r_building_type">
+                                      <label class="radio__label" for="building-type-09">кімната (частина кімнати) у гуртожитку</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-10" value="10" name="r_building_type">
+                                      <label class="radio__label" for="building-type-10">кімната (частина кімнати) у готелі</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">установа з рухомим складом населення, окрім готелю</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-11" value="11" name="r_building_type">
+                                      <label class="radio__label" for="building-type-11">заклад охорони здоров’я, санаторно˗курортний заклад, будинок відпочинку тощо (зазначте)</label>
+                                    </div>
+                                    <input type="text" class="input" name="r_rollingstock_building_type" placeholder="Зазначте">
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">інше</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-12" value="12" name="r_building_type">
+                                      <label class="radio__label" for="building-type-12">інше житлове приміщення (зазначте)</label>
+                                    </div>
+                                    <input type="text" class="input" name="r_building_type_аnother" placeholder="Зазначте">
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">житлове приміщення відсутнє</h3>
+                                  <div class="form-room__el">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="building-type-13" value="13" name="r_building_type">
+                                      <label class="radio__label" for="building-type-13">безпритульний</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-2" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <div class="form-room__flex form-room__flex--column">
+                                <h2 class="form-room__title">П2. Розмір загальної площі житлового приміщення</h2>
+                                <div class="form-room__el-info">
+                                  <div class="form-room__input form-room__col">
+                                    <input type="number" class="input" name="r_total_area">
+                                    <span class="form-room__input-title">у цілих кв. метрах</span>
+                                  </div>
+                                  <div class="form-room__info form-room__col">
+                                    <p>Загальну площу визначають як суму площі всіх житлових кімнат і підсобних приміщень (кухонь, передпокоїв, ванних або душових, туалетів, комор тощо), включаючи площу вбудованих шаф, холів, квартирних коридорів.</p>
+                                    <p>До загальної площі не включають площу:</p>
+                                    <ul>
+                                      <li>сходових кліток, ліфтових холів, тамбурів;</li>
+                                      <li>опалювальних печей і конструктивних елементів, що виступають;</li>
+                                      <li>прибудованих приміщень, що не опалюються (терас, веранд, мансард, мезонінів тощо);</li>
+                                      <li>окремо розташованих літніх кухонь, лазень, сараїв, альтанок тощо.</li>
+                                    </ul>
+                                    <p>Якщо домогосподарство займає тільки частину площі, а решту здає в найм, то вказують розмір усієї загальної площі, яка йому належить.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-3" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П3. Водопостачання </h2>
+                              <div class="form-room__flex form-room__flex--center">
+                                <div class="form-room__col radio">
+                                  <input class="radio__input" type="radio" id="water-supply-02" value="02" name="r_water_supply">
+                                  <label class="radio__label" for="water-supply-02">водопровід централізований (із комунальної системи водопостачання)</label>
+                                </div>
+                                <div class="form-room__col form-room__info">
+                                  <p>Якщо всередині будинку є розподільча мережа водопроводу, в яку вода надходить централізовано з водопроводу або артезіанської свердловини цілий рік.</p>
+                                </div>
+                              </div>
+                              <div class="form-room__flex form-room__flex--center">
+                                <div class="form-room__col radio">
+                                  <input class="radio__input" type="radio" id="water-supply-03" value="03" name="r_water_supply">
+                                  <label class="radio__label" for="water-supply-03">водопровід локальний (автономний, індивідуальна система)</label>
+                                </div>
+                                <div class="form-room__col form-room__info">
+                                  <p>Якщо всередині будинку є розподільча мережа водопроводу, до якої вода надходить з індивідуальної системи (наприклад, надходження води у житлове приміщення відбувається за допомогою водопровідного пристрою, приєднаного до свердловини, колодязя або від будь-якої іншої розподільної мережі водопроводу.</p>
+                                </div>
+                              </div>
+                              <div class="form-room__flex form-room__flex--center">
+                                <div class="form-room__col radio">
+                                  <input class="radio__input" type="radio" id="water-supply-04" value="04" name="r_water_supply">
+                                  <label class="radio__label" for="water-supply-04">водопровід поза житлом (колонка)</label>
+                                </div>
+                                <div class="form-room__col form-room__info">
+                                  <p>Якщо магістральний водопровід з краном або колонка знаходяться поза житлом (відсутнє підведення води до житлового будинку).</p>
+                                </div>
+                              </div>
+                              <div class="form-room__flex form-room__flex--center">
+                                <div class="form-room__col radio">
+                                  <input class="radio__input" type="radio" id="water-supply-05" value="05" name="r_water_supply">
+                                  <label class="radio__label" for="water-supply-05">колодязь, криниця, інший вид водопостачання</label>
+                                </div>
+                                <div class="form-room__col form-room__info">
+                                  <p>Якщо забір води здійснюється тільки на подвір’ї або на території населеного пункту без розподільчої мережі; це викопані колодязь, криниця чи свердловини.</p>
+                                </div>
+                              </div>
+                              <div class="form-room__flex form-room__flex--center">
+                                <div class="form-room__col radio">
+                                  <input class="radio__input" type="radio" id="water-supply-06" value="06" name="r_water_supply">
+                                  <label class="radio__label" for="water-supply-06">водопостачання відсутне</label>
+                                </div>
+                                <div class="form-room__col form-room__info">
+                                  <p>Якщо для потреб домогосподарства використовується привізна вода з цистерн, баків, джерела, річки, озера (поверхневі води).</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-4" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П4. Туалет </h2>
+                              <div class="form-room__col">
+                                <h3 class="form-room__subtitle">Наявність туалету</h3>
+                                <div class="form-room__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="toilet-09" value="09" name="r_toilet">
+                                    <label class="radio__label" for="toilet-09">зі змивом у житловому приміщенні</label>
+                                  </div>
+                                </div>
+                                <div class="form-room__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="toilet-10" value="10" name="r_toilet">
+                                    <label class="radio__label" for="toilet-10">іншого типу в житловому приміщенні (включаючи біотуалет)</label>
+                                  </div>
+                                </div>
+                                <div class="form-room__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="toilet-11" value="11" name="r_toilet">
+                                    <label class="radio__label" for="toilet-11">поза житловим приміщенням</label>
+                                  </div>
+                                  <h3 class="form-room__subtitle form-room__subtitle--transp">чи користуєтесь Ви цим туалетом разом з іншими домогосподарствами</h3>
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="toilet-13" value="13" name="r_toilet_other_households">
+                                    <label class="radio__label" for="toilet-13">так</label>
+                                  </div>
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="toilet-14" value="14" name="r_toilet_other_households">
+                                    <label class="radio__label" for="toilet-14">нi</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-room__col">
+                                <h3 class="form-room__subtitle">Відсутність туалету</h3>
+                                <div class="form-room__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="toilet-16" value="16" name="r_toilet">
+                                    <label class="radio__label" for="toilet-16">туалет відсутній</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="room-main-2" class="tabs__content js-tab-content">
+                      <div class="tabs js-tabs">
+                        <ul class="tabs__nav-title">
+                          <li class="circle is-active"><a href="#room-5">П5. Ванна/душ</a></li>
+                          <li class="circle"><a href="#room-6">П6. Гаряче вдопостачання</a></li>
+                          <li class="circle"><a href="#room-7">П7. Каналізація</a></li>
+                          <li class="circle"><a href="#room-8">П8. Кухня</a></li>
+                        </ul>
+                        <div class="tabs__contents">
+                          <div id="room-5" class="tabs__content is-active js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П5. Ванна та (або) душ </h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="bath-19" value="19" name="r_bath">
+                                  <label class="radio__label" for="bath-19">у житловому приміщенні</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="bath-20" value="20" name="r_bath">
+                                  <label class="radio__label" for="bath-20">поза житловим приміщенням</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="bath-21" value="21" name="r_bath">
+                                  <label class="radio__label" for="bath-21">лазня, сауна</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="bath-22" value="22" name="r_bath">
+                                  <label class="radio__label" for="bath-22">ванна, душ, лазня, сауна відсутні</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-6" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П6. Гаряче водопостачання </h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="hot-water-supply-25" value="25" name="r_hot_water_supply">
+                                  <label class="radio__label" for="hot-water-supply-25">централізоване</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="hot-water-supply-26" value="26" name="r_hot_water_supply">
+                                  <label class="radio__label" for="hot-water-supply-26">від індивідуальних водонагрівачів</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="hot-water-supply-27" value="27" name="r_hot_water_supply">
+                                  <label class="radio__label" for="hot-water-supply-27">відсутнє</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-7" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П7. Водовідведення (каналізація) </h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="sewage-30" value="30" name="r_sewage">
+                                  <label class="radio__label" for="sewage-30">централізоване (видалення стічних вод по трубах у комунальну каналізаційну систему)</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="sewage-31" value="31" name="r_sewage">
+                                  <label class="radio__label" for="sewage-31">локальне (індивідуальна) (видалення стічних вод по трубах у локальну (індивідуальну) каналізаційну систему (септик))</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="sewage-32" value="32" name="r_sewage">
+                                  <label class="radio__label" for="sewage-32">інші системи видалення стічних вод (у відкриті ями, колодязі, вигрібні ями, річку, море тощо)</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="sewage-33" value="33" name="r_sewage">
+                                  <label class="radio__label" for="sewage-33">система каналізації відсутня</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-8" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П8. Кухня або кухонний куток </h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="kitchen-36" value="36" name="r_kitchen">
+                                  <label class="radio__label" for="kitchen-36">у житловому приміщенні</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="kitchen-37" value="37" name="r_kitchen">
+                                  <label class="radio__label" for="kitchen-37">в окремій будівлі</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="kitchen-38" value="38" name="r_kitchen">
+                                  <label class="radio__label" for="kitchen-38">відсутня</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="room-main-3" class="tabs__content js-tab-content">
+                      <div class="tabs js-tabs">
+                        <ul class="tabs__nav-title">
+                          <li class="is-active"><a href="#room-9">П9.Опалення</a></li>
+                          <li class=""><a href="#room-10">П10.Електро- постачання</a></li>
+                          <li class=""><a href="#room-11">П11. Газ</a></li>
+                          <li class=""><a href="#room-12">П12. Побутові відходи</a></li>
+                        </ul>
+                        <div class="tabs__contents">
+                          <div id="room-9" class="tabs__content is-active js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title"> Зазначте всі види благоустрою, що є у житловому приміщенні <br>П9. Опалення </h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="heating-41" value="41" name="r_heating">
+                                  <label class="radio__label" for="heating-41">центральне</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="heating-42" value="42" name="r_heating">
+                                  <label class="radio__label" for="heating-42">від індивідуальних установок, котлів</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="heating-43" value="43" name="r_heating">
+                                  <label class="radio__label" for="heating-43">від індивідуальних електрообігрівачів, спліт˗систем</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="heating-44" value="44" name="r_heating">
+                                  <label class="radio__label" for="heating-44">пічне</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="heating-45" value="45" name="r_heating">
+                                  <label class="radio__label" for="heating-45">відсутнє</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-10" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title">Зазначте всі види благоустрою, що є у житловому приміщенні<br>П10. Електропостачання</h2>
+                              <div class="form-room__flex">
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">10-а. Електропостачання</h3>
+                                  <div class="form-room__el form-room__el--mb-big">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="electricity-supply-48" value="48" name="r_electricity_supply">
+                                      <label class="radio__label" for="electricity-supply-48">так</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-room__el form-room__el--mb-big">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="electricity-supply-49" value="49" name="r_electricity_supply">
+                                      <label class="radio__label" for="electricity-supply-49">нi</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-room__col">
+                                  <h3 class="form-room__subtitle">10-б. Електрична плита стаціонарна</h3>
+                                  <div class="form-room__el form-room__el--mb-big">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="electric-stove-52" value="52" name="r_electric_stove">
+                                      <label class="radio__label" for="electric-stove-52">так</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-room__el form-room__el--mb-big">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="electric-stove-53" value="53" name="r_electric_stove">
+                                      <label class="radio__label" for="electric-stove-53">нi</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-11" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title">Зазначте всі види благоустрою, що є у житловому приміщенні<br>П11. Газ</h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="gas-56" value="56" name="r_gas">
+                                  <label class="radio__label" for="gas-56">природний мережевий</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="gas-57" value="57" name="r_gas">
+                                  <label class="radio__label" for="gas-57">скраплений (балони)</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="gas-58" value="58" name="r_gas">
+                                  <label class="radio__label" for="gas-58">відсутній</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-12" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title">Зазначте всі види благоустрою, що є у житловому приміщенні<br>П12. Видалення побутових відходів</h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="garbage-61" value="61" name="r_garbage">
+                                  <label class="radio__label" for="garbage-61">сміттєпровід</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="garbage-62" value="62" name="r_garbage">
+                                  <label class="radio__label" for="garbage-62">сміттєзбірники поза будинком</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="garbage-63" value="63" name="r_garbage">
+                                  <label class="radio__label" for="garbage-63">збирання сміття спецмашиною</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="garbage-64" value="64" name="r_garbage">
+                                  <label class="radio__label" for="garbage-64">викидання сміття в ями, на купи, тощо</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="garbage-65" value="65" name="r_garbage">
+                                  <label class="radio__label" for="garbage-65">інше (зазначте)</label>
+                                  <input type="text" class="input" name="r_garbage_аnother" placeholder="Зазначте">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="room-main-4" class="tabs__content js-tab-content">
+                      <div class="tabs js-tabs">
+                        <ul class="tabs__nav-title">
+                          <li class="is-active"><a href="#room-13">П13.Період побудови</a></li>
+                          <li class=""><a href="#room-14">П14.Матеріал зовнішніх стін</a></li>
+                        </ul>
+                        <div class="tabs__contents">
+                          <div id="room-13" class="tabs__content is-active js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title">П13. Період побудови будівлі</h2>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-01" value="01" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-01">до 1919 року</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-02" value="02" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-02">у 1919 – 1945 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-03" value="03" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-03">у 1946 – 1960 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-04" value="04" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-04">у 1961 – 1970 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-05" value="05" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-05">у 1971 – 1980 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-06" value="06" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-06">у 1981 – 1990 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-07" value="07" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-07">у 1991 – 2000 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-08" value="08" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-08">у 2001 – 2010 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-09" value="09" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-09">у 2011 – 2020 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-10" value="10" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-10">недобудований житловий будинок</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-11" value="11" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-11">точно не знаю, але до 1946 року</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-12" value="12" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-12">точно не знаю, але у 1946 – 1990 роках</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-13" value="13" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-13">точно не знаю, але у 1991 році або пізніше</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-medium">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="сonstruction-building-time-14" value="14" name="r_сonstruction_building_time">
+                                  <label class="radio__label" for="сonstruction-building-time-14">не знаю</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="room-14" class="tabs__content js-tab-content">
+                            <div class="form-room__inner">
+                              <h2 class="form-room__title">П14. Матеріал зовнішніх стін будівлі</h2>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-01" value="01" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-01">цегла, камінь</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-02" value="02" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-02">панель, блок</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-03" value="03" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-03">дерево</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-04" value="04" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-04">моноліт</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-05" value="05" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-05">інші змішані матеріали</label>
+                                </div>
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-06" value="06" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-06">інше (зазначте)</label>
+                                </div>
+                                <input type="text" class="input" name="test" placeholder="Зазначте">
+                              </div>
+                              <div class="form-room__el form-room__el--mb-big">
+                                <div class="radio">
+                                  <input class="radio__input" type="radio" id="walls-material-07" value="07" name="r_walls_material">
+                                  <label class="radio__label" for="walls-material-07">не знаю</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </form>
+            </section>
+            <section class="household js-household" data="section">
+              <form class="form-household">
+                <div class="tabs js-tabs">
+                  <ul class="tabs__nav-title tabs__nav-title--left tabs__nav-title--center tabs__nav-title--other">
+                    <li class="is-active"><a href="#household-1">Домогосподарство 1</a></li>
+                  </ul>
+                  <div class="tabs__contents">
+                    <div id="household-1" class="tabs__content is-active js-tab-content">
+                      <div class="form-household__wrap">
+                        <div class="form-household__row">
+                          <h3 class="form-household__subtitle">Кількість домогосподарств, які проживають у приміщєнні:</h3>
+                          <div class="form-household__flex">
+                            <div class="radio-num">
+                              <input class="radio-num__input" type="radio" id="households-count-1" value="1" name="r_households_count" checked>
+                              <label class="radio-num__label" for="households-count-1">1</label>
+                            </div>
+                            <div class="radio-num">
+                              <input class="radio-num__input" type="radio" id="households-count-2" value="2" name="r_households_count">
+                              <label class="radio-num__label" for="households-count-2">2</label>
+                            </div>
+                            <div class="radio-num">
+                              <input class="radio-num__input" type="radio" id="households-count-3" value="3" name="r_households_count">
+                              <label class="radio-num__label" for="households-count-3">3</label>
+                            </div>
+                            <div class="radio-num">
+                              <input class="radio-num__input" type="radio" id="households-count-4" value="4" name="r_households_count">
+                              <label class="radio-num__label" for="households-count-4">4</label>
+                            </div>
+                            <div class="radio-num">
+                              <input class="radio-num__input" type="radio" id="households-count-5" value="5" name="r_households_count">
+                              <label class="radio-num__label" for="households-count-5">5</label>
+                            </div>
+                            <input type="text" class="input-rect" placeholder="Інша кількість">
+                          </div>
+                        </div>
+                        <div class="form-household__row">
+                          <p class="form-household__info form-household__info--border"><strong>Домогосподарство</strong> — сукупність осіб (або одна особа), які спільно проживають в одному житловому приміщенні (або його частині), ведуть спільне господарство (мають спільні витрати на утримання житла, харчування тощо), повністю або частково об’єднують та витрачають кошти. Ці особи можуть перебувати або не перебувати у родинних стосунках.</p>
+                        </div>
+                        <h3 class="form-household__subtitle">Зазначте кількість членів у кожному домогосподарстві:</h3>
+                        <div class="form-household__flex">
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="household_member_count-1" value="1" name="h_household_member_count" checked>
+                            <label class="form__subtitle radio-num__label" for="household_member_count-1">1</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="household_member_count-2" value="2" name="h_household_member_count">
+                            <label class="form__subtitle radio-num__label" for="household_member_count-2">2</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="household_member_count-3" value="3" name="h_household_member_count">
+                            <label class="form__subtitle radio-num__label" for="household_member_count-3">3</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="household_member_count-4" value="4" name="h_household_member_count">
+                            <label class="form__subtitle radio-num__label" for="household_member_count-4">4</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="household_member_count-5" value="5" name="h_household_member_count">
+                            <label class="form__subtitle radio-num__label" for="household_member_count-5">5</label>
+                          </div>
+                          <input type="text" class="input-rect" placeholder="Інша кількість">
+                        </div>
+                        <button type="button" class="js-open-modal-household btn-blue-icon">open modal</button>
+                        <div class="modal js-modal">
+                          <div class="modal__overlay js-close-modal"></div>
+                          <div class="modal__content">
+                            <div class="form-household__popup">
+                              <div class="form-household__icon">
+                                <svg class="icon icon-info">
+                                  <use xlink:href="img/sprite.svg#icon-info"></use>
+                                </svg>
+                              </div>
+                              <h2 class="form-household__title">Домогосподарство</h2>
+                              <div class="form-household__flex">
+                                <div class="form-household__el form-household__col">
+                                  <h3 class="form-household__el-title">Назва</h3>
+                                  <input type="text" class="input" placeholder="1">
+                                </div>
+                                <div class="form-household__info form-household__col">(замість номера можна ввести якусь назву, наприклад, Петренки)</div>
+                              </div>
+                              <div class="form-household__flex form-household__flex--gray form-household__flex--center">
+                                <div class="check">
+                                  <input class="check__input" type="checkbox" id="temp_residents" value="true" name="h_temp_residents">
+                                  <label class="form__subtitle check__label" for="temp_residents">Домогосподарство тимчасово проживаючих</label>
+                                </div>
+                              </div>
+                              <div class="form-household__flex">
+                                <div class="radio-num radio-num--small">
+                                  <input class="radio-num__input" type="radio" id="household_rooms-1" value="1" name="h_household_rooms" checked>
+                                  <label class="form__subtitle radio-num__label" for="household_rooms-1">1</label>
+                                </div>
+                                <div class="radio-num radio-num--small">
+                                  <input class="radio-num__input" type="radio" id="household_rooms-2" value="2" name="h_household_rooms">
+                                  <label class="form__subtitle radio-num__label" for="household_rooms-2">2</label>
+                                </div>
+                                <div class="radio-num radio-num--small">
+                                  <input class="radio-num__input" type="radio" id="household_rooms-3" value="3" name="h_household_rooms">
+                                  <label class="form__subtitle radio-num__label" for="household_rooms-3">3</label>
+                                </div>
+                                <div class="radio-num radio-num--small">
+                                  <input class="radio-num__input" type="radio" id="household_rooms-4" value="4" name="h_household_rooms">
+                                  <label class="form__subtitle radio-num__label" for="household_rooms-4">4</label>
+                                </div>
+                                <div class="radio-num radio-num--small">
+                                  <input class="radio-num__input" type="radio" id="household_rooms-5" value="5" name="h_household_rooms">
+                                  <label class="form__subtitle radio-num__label" for="household_rooms-5">5</label>
+                                </div>
+                                <input type="text" class="input-rect" placeholder="Інша кількість">
+                              </div>
+                              <div class="form-household__flex form-household__flex--center">
+                                <div class="check">
+                                  <input class="check__input" type="checkbox" id="h_household_room_parts" value="true" name="h_temp_residents">
+                                  <label class="check__label" for="h_household_room_parts">Частина кімнати</label>
+                                </div>
+                              </div>
+                              <div class="form-household__flex form-household__flex--gray form-household__flex--column">
+                                <h3 class="form-household__subtitle">Тип володіння житловим приміщєнням:</h3>
+                                <div class="form-household__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="ownership_type-01" value="01" name="h_ownership_type">
+                                    <label class="radio__label" for="ownership_type-01">приватна власність членів домогосподарства</label>
+                                  </div>
+                                </div>
+                                <div class="form-household__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="ownership_type-02" value="02" name="h_ownership_type">
+                                    <label class="radio__label" for="ownership_type-02">державна, комунальна, приватна власність юридичних осіб</label>
+                                  </div>
+                                </div>
+                                <div class="form-household__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="ownership_type-03" value="03" name="h_ownership_type">
+                                    <label class="radio__label" for="ownership_type-03">оренда (найм) у окремих громадян</label>
+                                  </div>
+                                </div>
+                                <div class="form-household__el">
+                                  <div class="radio">
+                                    <input class="radio__input" type="radio" id="ownership_type-04" value="04" name="h_ownership_type">
+                                    <label class="radio__label" for="ownership_type-04">не вказали тип володіння житловим приміщенням</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-household__flex form-household__flex--column">
+                                <h3 class="form-household__subtitle">Доступ домогосподарства до мережі Інтернет (включаючи мобільний)</h3>
+                                <div class="form-household__flex form-household__flex--center">
+                                  <div class="form-household__col">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="internet-68" value="68" name="h_internet">
+                                      <label class="radio__label" for="internet-68">так</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-household__col">
+                                    <div class="radio">
+                                      <input class="radio__input" type="radio" id="internet-69" value="69" name="h_internet">
+                                      <label class="radio__label" for="internet-69">ні</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-household__btns">
+                                <button type="button" class="btn-blue-icon">
+                                  <span class="btn-blue-icon__icon btn-blue-icon__icon--left">
+                                    <svg class="icon icon-arrow">
+                                      <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                                    </svg>
+                                  </span>
+                                  <span class="btn-blue-icon__text">Домогосподарства</span>
+                                </button>
+                                <button type="button" class="btn-blue-icon">
+                                  <span class="btn-blue-icon__icon">
+                                    <svg class="icon icon-arrow">
+                                      <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                                    </svg>
+                                  </span>
+                                  <span class="btn-blue-icon__text">Родинні стосунки</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </section>
+            <section class="new-members js-members" data="section">
+              <div class="tabs js-tabs">
+                <ul class="tabs__nav-title tabs__nav-title--left tabs__nav-title--center">
+                  <li class="is-active"><a href="#members-1">Домогосподарство 1</a></li>
+                </ul>
+                <div class="tabs__contents">
+                  <div id="members-1" class="tabs__content is-active js-tab-content">
+                    <div class="new-members__content">
+                      <div class="js-tree-members new-members__tree">
+                        <button type="button" class="new-members__btn-add js-add-member">
+                          <span class="new-members__btn-add-icon"></span>
+                          <span class="new-members__btn-add-text js-add-member-text">додати особу</span>
+                        </button>
+                        <div class="new-members__tree-row js-row-members" data="1"></div>
+                        <div class="new-members__tree-row js-row-members" data="2"></div>
+                        <div class="new-members__tree-row js-row-members" data="3"></div>
+                        <div class="new-members__tree-row js-row-members" data="4"></div>
+                      </div>
+                      <form class="new-form-members-count">
+                        <h3 class="new-form-members-count__title">Кількість членів домогосподарства:</h3>
+                        <div class="new-form-members-count__flex">
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="m_household_member_count-1" value="1" name="r_households_count" checked>
+                            <label class="radio-num__label" for="m_household_member_count-1">1</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="m_household_member_count-2" value="2" name="r_households_count">
+                            <label class="radio-num__label" for="m_household_member_count-2">2</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="m_household_member_count-3" value="3" name="r_households_count">
+                            <label class="radio-num__label" for="m_household_member_count-3">3</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="m_household_member_count-4" value="4" name="r_households_count">
+                            <label class="radio-num__label" for="m_household_member_count-4">4</label>
+                          </div>
+                          <div class="radio-num">
+                            <input class="radio-num__input" type="radio" id="m_household_member_count-5" value="5" name="r_households_count">
+                            <label class="radio-num__label" for="m_household_member_count-5">5</label>
+                          </div>
+                          <input type="text" class="input-rect" placeholder="Інша кількість">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 	<div class="modal js-modal">
+		<div class="modal__overlay js-close-modal"></div>
+		<div class="modal__content"> -->
+              <form class="form-connection js-form-connection">
+                <div class="form-connection__content">
+                  <button class="form-connection__close js-close-form-connection" type="button">закрити</button>
+                  <div class="form-connection__row">
+                    <h2 class="form-connection__subtitle form-connection__subtitle--center">Стать</h2>
+                    <div class="form-connection__wrap">
+                      <div class="form-connection__radio radio radio--top">
+                        <input class="radio__input" type="radio" id="m_gender_man" value="man" name="m_gender" required>
+                        <label class="radio__label" for="m_gender_man">Чоловiк</label>
+                      </div>
+                      <div class="form-connection__radio radio radio--top">
+                        <input class="radio__input" type="radio" id="m_gender_woman" value="woman" name="m_gender">
+                        <label class="radio__label" for="m_gender_woman">Жiнка</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-connection__flex">
+                    <h3 class="form-connection__subtitle">Iм'я</h3>
+                    <div class="form-connection__el">
+                      <input class="input input--white" type="text" name="m_name" placeholder="Прізвище ім'я по батькові" required>
+                    </div>
+                  </div>
+                  <div class="form-connection__flex">
+                    <h3 class="form-connection__subtitle">Дата народження</h3>
+                    <div class="form-connection__inner">
+                      <div class="form-connection__date">
+                        <select class="select select--white" name="m_day_of_birth" data="age" valid="false" required>
+                          <option value>день</option>
+                        </select>
+                      </div>
+                      <div class="form-connection__date">
+                        <select class="select select--white" name="m_month_of_birth" data="age" valid="false" required>
+                          <option value>мiсяць</option>
+                        </select>
+                      </div>
+                      <div class="form-connection__date">
+                        <select class="select select--white" name="m_year_of_birth" data="age" valid="false" required>
+                          <option value>рiк</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-connection__flex">
+                    <h3 class="form-connection__subtitle">Вашi родиннi стосунки з особою, що записана першою</h3>
+                    <div class="form-connection__el">
+                      <select class="select select--white select--big" name="m_relationship_to_first_person" required>
+                        <option value>Оберiть стосунки</option>
+                        <option value="01" man="Записаний першим" woman="Записаний першим">Записаний першим</option>
+                        <option value="02" man="чоловік" woman="дружина">чоловік, дружина</option>
+                        <option value="03" man="син" woman="дочка">син, дочка</option>
+                        <option value="04" man="батько" woman="мати">батько, мати</option>
+                        <option value="05" man="брат" woman="сестра">брат, сестра</option>
+                        <option value="06" man="зять" woman="невістка">зять, невістка</option>
+                        <option value="07" man="свекор, тесть" woman="свекруха, теща">свекор, тесть, свекруха, теща</option>
+                        <option value="08" man="дід" woman="баба">дід, баба</option>
+                        <option value="09" man="онук" woman="онука">онук, онука</option>
+                        <option value="10">інший ступінь родинних стосунків (свояцтва)</option>
+                        <option value="11">непов’язаний(на) родинними стосунками</option>
+                        <!-- <option value="12">не вказали тип родинних стосунків з особою, що записана першою у  домогосподарстві</option> -->
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-connection__flex">
+                    <h3 class="form-connection__subtitle">Чоловік/дружина</h3>
+                    <div class="form-connection__el">
+                      <select class="select select--white" name="m_member_relationship_id">
+                        <option value>Чоловік/дружина</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-connection__flex">
+                    <h3 class="form-connection__subtitle">Батько/мати</h3>
+                    <div class="form-connection__el">
+                      <select class="select select--white" name="m_parent_id">
+                        <option value>Батько/мати</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-connection__btns">
+                    <div class="form-connection__btn">
+                      <button class="js-close-form-connection btn-blue-icon" type="button">
+                        <span class="btn-blue-icon__icon btn-blue-icon__icon--left">
+                          <svg class="icon icon-cancel">
+                            <use xlink:href="img/sprite.svg#icon-cancel"></use>
+                          </svg>
+                        </span>
+                        <span class="btn-blue-icon__text">Вiдмiнити</span>
+                      </button>
+                    </div>
+                    <div class="form-connection__btn">
+                      <button class="btn-blue-icon" type="submit">
+                        <span class="btn-blue-icon__icon">
+                          <svg class="icon icon-plus">
+                            <use xlink:href="img/sprite.svg#icon-plus"></use>
+                          </svg>
+                        </span>
+                        <span class="btn-blue-icon__text">Додаты</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- 		</div> -->
+          </div>
+          </section>
+          <nav class="navigation">
+            <button type="button" class="navigation__item btn-blue-icon js-nav_button js-btn_prev">
+              <span class="btn-blue-icon__icon btn-blue-icon__icon--left">
+                <svg class="icon icon-arrow">
+                  <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                </svg>
+              </span>
+              <span class="btn-blue-icon__text">Текст</span>
+            </button>
+            <button type="button" class="navigation__item btn-blue-icon js-nav_button js-btn_next">
+              <span class="btn-blue-icon__icon">
+                <svg class="icon icon-arrow">
+                  <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                </svg>
+              </span>
+              <span class="btn-blue-icon__text">Текст</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+      <!--         <div class="popup js-popup">
+            <div class="popup__btns">
+                <button type="button" class="popup__next">Пропустити</button>
+                <button type="button" class="popup__close">Закрити</button>
+            </div>
+            <div class="popup__icon">icon</div>
+            <h2 class="popup__title">Title</h2>
+            <div class="popup__content"></div>
+        </div> -->
+    </div>
+    <div style="display: none;">
+      <span class="js-icon-man">
+        <svg class="icon icon-man">
+          <use xlink:href="img/sprite.svg#icon-man"></use>
+        </svg>
+      </span>
+      <span class="js-icon-woman">
+        <svg class="icon icon-woman">
+          <use xlink:href="img/sprite.svg#icon-woman"></use>
+        </svg>
+      </span>
+      <span class="js-icon-gender-man">
+        <svg class="icon icon-gender-man">
+          <use xlink:href="img/sprite.svg#icon-gender-man"></use>
+        </svg>
+      </span>
+      <span class="js-icon-gender-woman">
+        <svg class="icon icon-gender-woman">
+          <use xlink:href="img/sprite.svg#icon-gender-woman"></use>
+        </svg>
+      </span>
+      <span class="js-icon-marriage">
+        <svg class="icon icon-marriage">
+          <use xlink:href="img/sprite.svg#icon-marriage"></use>
+        </svg>
+      </span>
+    </div>
+    <div class="popup-member js-popup-member-templ">
+      <div class="popup-member__text">Заповнити/редагувати дані про особу</div>
+      <div class="popup-member__btns">
+        <button type="button" class="popup-member__btn" data="connection">короткі відомості</button>
+        <button type="button" class="popup-member__btn" data="member">персональна анкета</button>
+      </div>
+    </div>
+    <template id="form-connection-template">
+      <form class="form-connection js-form-connection">
+        <div class="form-connection__content">
+          <button class="form-connection__close js-close-form-connection" type="button">закрити</button>
+          <div class="form-connection__row">
+            <div class="form-connection__flex">
+              <div class="form-connection__radio radio">
+                <input class="radio__input" type="radio" id="m_gender_man" value="man" name="m_gender" required>
+                <label class="radio__title radio__label" for="m_gender_man">Чоловiк</label>
+              </div>
+              <div class="form-connection__radio radio">
+                <input class="radio__input" type="radio" id="m_gender_woman" value="woman" name="m_gender" required>
+                <label class="radio__title radio__label" for="m_gender_woman">Жiнка</label>
+              </div>
+            </div>
+            <h2 class="form-connection__subtitle form-connection__subtitle--center form-connection__subtitle--big">Стать</h2>
+          </div>
+          <div class="form-connection__row">
+            <input class="form-connection__input" type="text" name="m_name" placeholder="Прізвище ім'я по батькові" required>
+            <h3 class="form-connection__subtitle">Iм'я</h3>
+          </div>
+          <div class="form-connection__row">
+            <select class="form-connection__select" name="m_day_of_birth" data="age" valid="false" required>
+              <option value>Оберiть день</option>
+            </select>
+            <h3 class="form-connection__subtitle">День народження</h3>
+          </div>
+          <div class="form-connection__row">
+            <select class="form-connection__select" name="m_month_of_birth" data="age" valid="false" required>
+              <option value>Оберiть мiсяць</option>
+            </select>
+            <h3 class="form-connection__subtitle">Мiсяць народження</h3>
+          </div>
+          <div class="form-connection__row">
+            <select class="form-connection__select" name="m_year_of_birth" data="age" valid="false" required>
+              <option value>Оберiть рiк</option>
+            </select>
+            <h3 class="form-connection__subtitle">Piк народження</h3>
+          </div>
+          <div class="form-connection__selects js-selects-connection" style="display: none">
+            <div class="form-connection__row">
+              <select class="form-connection__select" name="m_relationship_to_first_person" required disabled>
+                <option value>Оберiть стосунки</option>
+                <option value="02" man="чоловік" woman="дружина"></option>
+                <option value="03" man="син" woman="дочка"></option>
+                <option value="04" man="батько" woman="мати"></option>
+                <option value="05" man="брат" woman="сестра"></option>
+                <option value="06" man="зять" woman="невістка"></option>
+                <option value="07" man="свекор, тесть" woman="свекруха, теща"></option>
+                <option value="08" man="дід" woman="баба"></option>
+                <option value="09" man="онук" woman="онука"></option>
+                <option value="10">інший ступінь родинних стосунків (свояцтва)</option>
+                <option value="11">непов’язаний(на) родинними стосунками</option>
+                <option value="12">не вказали тип родинних стосунків з особою, що записана першою у домогосподарстві</option>
+              </select>
+              <h3 class="form-connection__subtitle">Вашi родиннi стосунки з особою, що записана першою</h3>
+            </div>
+            <div class="form-connection__row">
+              <select class="form-connection__select" name="m_member_relationship_id" disabled>
+                <option value></option>
+              </select>
+              <h3 class="form-connection__subtitle">Оберiть чоловіка чи дружину</h3>
+            </div>
+            <div class="form-connection__row">
+              <select class="form-connection__select" name="m_parent_id" disabled>
+                <option value></option>
+              </select>
+              <h3 class="form-connection__subtitle">Оберiть Батька чи Мати</h3>
+            </div>
+          </div>
+          <div class="form-connection__btns">
+            <button class="js-close-form-connection btn" type="button">Вiдмiнити</button>
+            <button class="btn" type="submit">Додаты</button>
+          </div>
+          <div class="form-connection__overlay"></div>
+        </div>
+      </form>
+    </template>
+    </div>
+    <!-- END content -->
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/lib/common.js"></script>
+    <script type="text/JavaScript" src="js/lib/euutils.js"></script>
+    <script type="text/JavaScript" src="js/lib/euscpt.js"></script>
+    <script defer type="text/JavaScript" src="js/lib/euscpm.js"></script>
+    <script async type="text/javascript" src="js/lib/euscp.js"></script>
+    <script type="text/javascript" src="js/lib/qr/qrcodedecode.js"></script>
+    <script type="text/javascript" src="js/lib/qr/reedsolomon.js"></script>
+    <script type="text/javascript" src="js/lib/fs/Blob.min.js"></script>
+    <script type="text/javascript" src="js/lib/fs/FileSaver.js"></script>
+    <!-- END scripts -->
+  </body>
+</html>
