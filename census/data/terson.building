@@ -1,0 +1,42 @@
+[
+	{
+		"building_id" : 1,
+		"street_id" : 2,
+		"building_number" : "1"
+	},
+	{
+		"building_id" : 2,
+		"street_id" : 2,
+		"building_number" : "1a"
+	},
+	{
+		"building_id" : 8,
+		"street_id" : 3,
+		"building_number" : "2"
+	},
+	{
+		"building_id" : 3,
+		"street_id" : 3,
+		"building_number" : "2a"
+	},
+	{
+		"building_id" : 4,
+		"street_id" : 4,
+		"building_number" : "3"
+	},
+	{
+		"building_id" : 5,
+		"street_id" : 4,
+		"building_number" : "3a"
+	},
+	{
+		"building_id" : 6,
+		"street_id" : 5,
+		"building_number" : "4"
+	},
+	{
+		"building_id" : 7,
+		"street_id" : 5,
+		"building_number" : "4a"
+	}
+]
