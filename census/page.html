@@ -100,7 +100,7 @@
                     </div>
                   </div>
                   <div class="section__row">
-                    <input type="button" class="navigation__item btn-blue-icon" value="Увійти" onclick="decryptPKey()">
+                    <input type="button" class="navigation__item btn-blue-icon" value="Увійти" onclick="login()">
                   </div>
                 </div>
               </div>
@@ -888,10 +888,9 @@
                               <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-5" value="5" name="h_household1_member_count" data-household="1">
                               <label class="form__subtitle radio-num__label" for="household1_member_count-5">5</label>
                             </div>
-                            <input type="text" class="input-rect" placeholder="Інша кількість" id="household1_member_count-text" data-household="1">
+                            <input type="text" class="input-rect js-household-members-text" placeholder="Інша кількість" id="household1_member_count-text" data-household="1">
                           </div>
                         </div>
-                        <!--					<button type="button" class="js-open-modal-household btn-blue-icon">open modal</button> -->
                         <div class="modal js-modal">
                           <div class="modal__overlay js-close-modal"></div>
                           <div class="modal__content">
@@ -1019,8 +1018,7 @@
             </section>
             <section class="new-members js-members" data="section">
               <div class="tabs js-tabs">
-                <ul class="tabs__nav-title tabs__nav-title--left tabs__nav-title--center">
-                  <li class="is-active"><a href="#members-1">Домогосподарство 1</a></li>
+                <ul class="tabs__nav-title tabs__nav-title--left tabs__nav-title--center js-member-household-tabs">
                 </ul>
                 <div class="tabs__contents">
                   <div id="members-1" class="tabs__content is-active js-tab-content">
@@ -1035,30 +1033,30 @@
                         <div class="new-members__tree-row js-row-members" data="3"></div>
                         <div class="new-members__tree-row js-row-members" data="4"></div>
                       </div>
-                      <form class="new-form-members-count">
+                      <form class="new-form-members-count js-household-members2">
                         <h3 class="new-form-members-count__title">Кількість членів домогосподарства:</h3>
                         <div class="new-form-members-count__flex">
                           <div class="radio-num">
-                            <input class="radio-num__input" type="radio" id="m_household_member_count-1" value="1" name="r_households_count" checked>
+                            <input class="radio-num__input js-household-member-count2" type="radio" id="m_household_member_count-1" value="1" name="r_households_count" checked>
                             <label class="radio-num__label" for="m_household_member_count-1">1</label>
                           </div>
                           <div class="radio-num">
-                            <input class="radio-num__input" type="radio" id="m_household_member_count-2" value="2" name="r_households_count">
+                            <input class="radio-num__input js-household-member-count2" type="radio" id="m_household_member_count-2" value="2" name="r_households_count">
                             <label class="radio-num__label" for="m_household_member_count-2">2</label>
                           </div>
                           <div class="radio-num">
-                            <input class="radio-num__input" type="radio" id="m_household_member_count-3" value="3" name="r_households_count">
+                            <input class="radio-num__input js-household-member-count2" type="radio" id="m_household_member_count-3" value="3" name="r_households_count">
                             <label class="radio-num__label" for="m_household_member_count-3">3</label>
                           </div>
                           <div class="radio-num">
-                            <input class="radio-num__input" type="radio" id="m_household_member_count-4" value="4" name="r_households_count">
+                            <input class="radio-num__input js-household-member-count2" type="radio" id="m_household_member_count-4" value="4" name="r_households_count">
                             <label class="radio-num__label" for="m_household_member_count-4">4</label>
                           </div>
                           <div class="radio-num">
-                            <input class="radio-num__input" type="radio" id="m_household_member_count-5" value="5" name="r_households_count">
+                            <input class="radio-num__input js-household-member-count2" type="radio" id="m_household_member_count-5" value="5" name="r_households_count">
                             <label class="radio-num__label" for="m_household_member_count-5">5</label>
                           </div>
-                          <input type="text" class="input-rect" placeholder="Інша кількість">
+                          <input type="text" class="input-rect js-household-member-count2-text" placeholder="Інша кількість">
                         </div>
                       </form>
                     </div>
@@ -1072,11 +1070,11 @@
                     <h2 class="form-connection__subtitle form-connection__subtitle--center">Стать</h2>
                     <div class="form-connection__wrap">
                       <div class="form-connection__radio radio radio--top">
-                        <input class="radio__input" type="radio" id="m_gender_man" value="man" name="m_gender" required>
+                        <input class="radio__input" type="radio" id="m_gender_man" value="man" name="m_gender_id" required>
                         <label class="radio__label" for="m_gender_man">Чоловiк</label>
                       </div>
                       <div class="form-connection__radio radio radio--top">
-                        <input class="radio__input" type="radio" id="m_gender_woman" value="woman" name="m_gender">
+                        <input class="radio__input" type="radio" id="m_gender_woman" value="woman" name="m_gender_id">
                         <label class="radio__label" for="m_gender_woman">Жiнка</label>
                       </div>
                     </div>
@@ -1091,17 +1089,17 @@
                     <h3 class="form-connection__subtitle">Дата народження</h3>
                     <div class="form-connection__inner">
                       <div class="form-connection__date">
-                        <select class="select select--white" name="m_year_of_birth" data="age" valid="false" required>
+                        <select class="select select--white" name="m_birth_year" data="age" valid="false" required>
                           <option value>рiк</option>
                         </select>
                       </div>
                       <div class="form-connection__date">
-                        <select class="select select--white" name="m_month_of_birth" data="age" valid="false" required>
+                        <select class="select select--white" name="m_birth_month" data="age" valid="false" required>
                           <option value>мiсяць</option>
                         </select>
                       </div>
                       <div class="form-connection__date">
-                        <select class="select select--white" name="m_day_of_birth" data="age" valid="false" required>
+                        <select class="select select--white" name="m_birth_day" data="age" valid="false" required>
                           <option value>день</option>
                         </select>
                       </div>
@@ -1110,7 +1108,8 @@
                   <div class="form-connection__flex">
                     <h3 class="form-connection__subtitle">Вашi родиннi стосунки з особою, що записана першою</h3>
                     <div class="form-connection__el">
-                      <select class="select select--white select--big" name="m_relationship_to_first_person" required>
+                      <select class="select select--white select--big" name="m_sib_id" required>
+                        <!-- + -->
                         <option value man="Оберiть стосунки" woman="Оберiть стосунки">Оберiть стосунки</option>
                         <option value="01" man="Записаний першим" woman="Записаний першим">Записаний першим</option>
                         <option value="02" man="чоловік" woman="дружина">чоловік, дружина</option>
@@ -1130,7 +1129,7 @@
                   <div class="form-connection__flex">
                     <h3 class="form-connection__subtitle">Чоловік/дружина</h3>
                     <div class="form-connection__el">
-                      <select class="select select--white" name="m_member_relationship_id">
+                      <select class="select select--white" name="m_spouse_id">
                         <option value>Чоловік/дружина</option>
                       </select>
                     </div>
@@ -1248,13 +1247,7 @@
                           <div id="s_member-2" class="tabs__content js-tab-content">
                             <div class="form-member__inner">
                               <h2 class="form-member__title form-member__title--medium">А2. Місце народження респондента (зазначте, наприклад Автономна Республіка Крим, область, міста Київ чи Севастополь або назву іншої країни)</h2>
-                              <select class="select js-select select-serch" name="m_birth_place">
-                                <option value>Оберіть регіон чи країну1</option>
-                                <option value>Оберіть регіон чи країну2</option>
-                                <option value>Оберіть регіон чи країну3</option>
-                                <option value>Оберіть регіон чи країну4</option>
-                                <option value>Оберіть регіон чи країну5</option>
-                              </select>
+                              <div class="form-member__select" data-select-region="m_birth_place" data-class="js-select-birth-place" data-placeholder="Оберіть регіон чи країну" select></div>
                             </div>
                           </div>
                           <div id="s_member-3" class="tabs__content js-tab-content">
@@ -1278,27 +1271,13 @@
                                   <label class="radio__label" for="citizenship-3">іншої держави (зазначте)</label>
                                 </div>
                               </div>
-                              <select class="select js-select select-serch" name="m_birth_place">
-                                <option value>Оберіть державу1</option>
-                                <option value>Оберіть державу2</option>
-                                <option value>Оберіть державу3</option>
-                                <option value>Оберіть державу4</option>
-                                <option value>Оберіть державу5</option>
-                              </select>
+                              <div class="form-member__select" data-select-region="m_citizenship_other" data-class="js-select-citizenship-other" data-placeholder="Оберіть державу" select></div>
                             </div>
                           </div>
                           <div id="s_member-4" class="tabs__content js-tab-content">
                             <div class="form-member__inner">
                               <h2 class="form-member__title form-member__title--medium">А4. Етнічне походження (національність) (за самовизначенням респондента)</h2>
-                              <div class="form-member__el form-member__el--mb-big">
-                                <select class="select js-select select-serch" name="m_national_id">
-                                  <option value>Оберіть етнічне походження (національність)1</option>
-                                  <option value>Оберіть етнічне походження (національність)2</option>
-                                  <option value>Оберіть етнічне походження (національність)3</option>
-                                  <option value>Оберіть етнічне походження (національність)4</option>
-                                  <option value>Оберіть етнічне походження (національність)5</option>
-                                </select>
-                              </div>
+                              <div class="form-member__select" data-select-nationality="m_national_id" data-class="js-select-national" data-placeholder="Оберіть етнічне походження (національність)" select></div>
                               <div class="form-member__el">
                                 <div class="radio">
                                   <input class="radio__input" type="radio" id="m_national_id-1" value="995" name="m_national_id">
@@ -1444,13 +1423,13 @@
                                     <div class="form-member__flex form-member__flex--start">
                                       <div class="form-member__wrap">
                                         <div class="radio">
-                                          <input class="radio__input" type="radio" id="m_education_id-12" value="12" name="m_education_id_other">
+                                          <input class="radio__input" type="radio" id="m_education_id-12" value="12" name="m_education_id_add">
                                           <label class="radio__label" for="m_education_id-12">так</label>
                                         </div>
                                       </div>
                                       <div class="form-member__wrap">
                                         <div class="radio">
-                                          <input class="radio__input" type="radio" id="m_education_id-13" value="13" name="m_education_id_other">
+                                          <input class="radio__input" type="radio" id="m_education_id-13" value="13" name="m_education_id_add">
                                           <label class="radio__label" for="m_education_id-13">ні</label>
                                         </div>
                                       </div>
@@ -1586,15 +1565,7 @@
                               <h2 class="form-member__title">А9. Мовні ознаки респондента</h2>
                               <div class="form-member__row form-member__row--mb">
                                 <h3 class="form-member__subtitle">9-а. Рідна мова респондента (зазначте)</h3>
-                                <div class="form-member__select">
-                                  <select class="select js-select select-serch" name="m_language_id">
-                                    <option value>Оберіть рідну мову респондента 1</option>
-                                    <option value>Оберіть рідну мову респондента 2</option>
-                                    <option value>Оберіть рідну мову респондента 3</option>
-                                    <option value>Оберіть рідну мову респондента 4</option>
-                                    <option value>Оберіть рідну мову респондента 5</option>
-                                  </select>
-                                </div>
+                                <div class="form-member__select" data-select-language="m_language_id" data-class="js-select-language" data-placeholder="Оберіть рідну мову респондента" select></div>
                               </div>
                               <div class="form-member__row form-member__row--mb">
                                 <h3 class="form-member__subtitle">9-б. Чи володіє респондент українською мовою?</h3>
@@ -1614,16 +1585,8 @@
                                 </div>
                               </div>
                               <div class="form-member__row">
-                                <h3 class="form-member__subtitle">9-а. Рідна мова респондента (зазначте)</h3>
-                                <div class="form-member__select">
-                                  <select class="select js-select select-serch" name="m_language_id">
-                                    <option value>Оберіть мову, якою володіє респондент 1</option>
-                                    <option value>Оберіть мову, якою володіє респондент 2</option>
-                                    <option value>Оберіть мову, якою володіє респондент 3</option>
-                                    <option value>Оберіть мову, якою володіє респондент 4</option>
-                                    <option value>Оберіть мову, якою володіє респондент 5</option>
-                                  </select>
-                                </div>
+                                <h3 class="form-member__subtitle">9-в. Інші мови, якими володіє респондент (зазначте), не бiльше 3-х</h3>
+                                <div class="form-member__select" data-select-language-multi="m_speak_other_languages" data-class="js-select-speak-other-languages" data-placeholder="Оберіть рідну мову респондента" select multiple></div>
                                 <div class="form-member__wrap">
                                   <div class="check">
                                     <input class="check__input" type="checkbox" id="m_sign_language" value="01" name="m_sign_language">
@@ -1905,7 +1868,7 @@
                                 <p class="form-member__text form-member__text--bold">Зазначте назву:</p>
                                 <div class="form-member__flex">
                                   <h3 class="form-member__subtitle form-member__subtitle--transp">Регіон:</h3>
-                                  <div class="form-member__select" data="m_job_region"></div>
+                                  <div class="form-member__select" data-select-region="m_job_region" data-class="js-select-job-region" data-placeholder="Оберіть регіон" select></div>
                                 </div>
                                 <div class="form-member__flex">
                                   <h3 class="form-member__subtitle form-member__subtitle--transp">Населений пункт:</h3>
@@ -1919,13 +1882,7 @@
                                 </div>
                                 <div class="form-member__flex">
                                   <h3 class="form-member__subtitle form-member__subtitle--transp">Інша країна:</h3>
-                                  <div class="form-member__select">
-                                    <select class="select js-select select-serch" name="m_main_job_location_another_country">
-                                      <option value>Оберіть іншу країну 1</option>
-                                      <option value>Оберіть іншу країну 2</option>
-                                      <option value>Оберіть іншу країну 3</option>
-                                    </select>
-                                  </div>
+                                  <div class="form-member__select" data-select-region="m_main_job_location_another_country" data-class="js-select-main-job-location-another-country" data-placeholder="Оберіть іншу країну" select></div>
                                 </div>
                                 <p class="form-member__text form-member__text--bold">Зазначте основну причину, з якої респондент не працює в населеному пункті, де проживає:</p>
                                 <div class="form-member__flex">
@@ -2162,13 +2119,7 @@
                                 <div class="form-member__migration">
                                   <div class="form-member__flex">
                                     <h3 class="form-member__subtitle form-member__subtitle--transp">Регіон:</h3>
-                                    <div class="form-member__select">
-                                      <select class="select js-select select-serch" name="m_left_region">
-                                        <option value>Оберіть регіон 1</option>
-                                        <option value>Оберіть регіон 2</option>
-                                        <option value>Оберіть регіон 3</option>
-                                      </select>
-                                    </div>
+                                    <div class="form-member__select" data-select-region="m_left_region" data-class="js-select-left-region" data-placeholder="Оберіть регіон" select></div>
                                   </div>
                                   <div class="form-member__flex">
                                     <h3 class="form-member__subtitle form-member__subtitle--transp">Населений пункт:</h3>
@@ -2213,13 +2164,7 @@
                               <div class="form-member__title">А17. Місце попереднього проживання респондента</div>
                               <div class="form-member__row">
                                 <div class="form-member__subtitle">Зазначте назву регіону (Автономна Республіка Крим, область, м. Київ, м. Севастополь) або іншої країни</div>
-                                <div class="form-member__select">
-                                  <select class="select js-select select-serch" name="m_previous_residence_region">
-                                    <option value>Оберіть регіон 1</option>
-                                    <option value>Оберіть регіон 2</option>
-                                    <option value>Оберіть регіон 3</option>
-                                  </select>
-                                </div>
+                                <div class="form-member__select" data-select-region="m_previous_residence_region" data-class="js-select-previous-residence-region" data-placeholder="Оберіть регіон" select></div>
                               </div>
                               <div class="form-member__row">
                                 <div class="form-member__subtitle">Тип населеного пункту:</div>
@@ -2266,13 +2211,7 @@
                                   </svg>
                                 </div>
                                 <h3 class="form-member__subtitle">Зазначте з якої країни респондент приїхав в Україну (остання, якщо їх декілька)</h3>
-                                <div class="form-member__select">
-                                  <select class="select js-select select-serch" name="m_lived_another_country">
-                                    <option value>Оберіть країну 1</option>
-                                    <option value>Оберіть країну 2</option>
-                                    <option value>Оберіть країну 3</option>
-                                  </select>
-                                </div>
+                                <div class="form-member__select" data-select-region="m_lived_another_country" data-class="js-select-lived-another-country" data-placeholder="Оберіть регіон" select></div>
                                 <h3 class="form-member__subtitle">У якому році:</h3>
                                 <div class="form-member__input form-member__col">
                                   <input type="number" class="input" name="m_lived_another_country_year" placeholder="рiк">
@@ -2423,25 +2362,23 @@
                                 <h3 class="form-member__subtitle">Де зареєстровано місце проживання респондента:</h3>
                                 <div class="form-member__el form-member__el--mb-big">
                                   <div class="radio">
-                                    <input class="radio__input" type="radio" id="m_registered_place-01" value="01" name="m_registered_place">
+                                    <input class="radio__input" type="radio" id="m_registered_place-01" value="01" name="m_registration_id">
                                     <label class="radio__label" for="m_registered_place-01">у тому ж населеному пункті, де проживаєте постійно (фактично)</label>
                                   </div>
                                 </div>
                                 <div class="form-member__el form-member__el--mb-big">
                                   <div class="radio">
-                                    <input class="radio__input" type="radio" id="m_registered_place-02" value="02" name="m_registered_place">
+                                    <input class="radio__input" type="radio" id="m_registered_place-02" value="02" name="m_registration_id">
                                     <label class="radio__label" for="m_registered_place-02">в іншому населеному пункті регіону</label>
                                   </div>
                                 </div>
                                 <div class="form-member__el form-member__el--mb-big">
                                   <div class="radio">
-                                    <input class="radio__input" type="radio" id="m_registered_place-03" value="03" name="m_registered_place">
+                                    <input class="radio__input" type="radio" id="m_registered_place-03" value="03" name="m_registration_id">
                                     <label class="radio__label" for="m_registered_place-03">в іншому регіоні або іншій державі (зазначте)</label>
                                   </div>
                                 </div>
-                                <div class="form-member__input">
-                                  <input type="text" class="input" name="m_registered_place_аnother" placeholder="Зазначте">
-                                </div>
+                                <div class="form-member__select" data-select-region="m_registration_аnother" data-class="js-select-registration-аnother" data-placeholder="Оберіть регіон" select></div>
                               </div>
                             </div>
                           </div>
