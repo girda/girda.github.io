@@ -35,7 +35,7 @@
                 <span class="btn-icon__icon"><img src="img/stat.png"></span>
                 <span class="btn-icon__text">Про перепис</span>
               </button>
-              <button type="button" class="user-block__btn btn-icon" data="save">
+              <button type="button" class="user-block__btn btn-icon js-btn_save" data="save">
                 <span class="btn-icon__icon">
                   <svg class="icon icon-save">
                     <use xlink:href="img/sprite.svg#icon-save"></use>
@@ -64,7 +64,6 @@
                     <div class="section__subtitle">Центр сертифікації ключів:</div>
                     <div class="section__el">
                       <select class="select js-select-ca select-serch" id="CAsServersSelect">
-                        <option value>Оберіть центр сертифікації ключів</option>
                       </select>
                     </div>
                   </div>
@@ -73,7 +72,7 @@
                     <div class="section__el">
                       <label class="input-file">
                         <span class="js-keyfile-label">Оберіть кваліфікований підпис:</span>
-                        <input type="file" class="input-file__input" id="PKeyFileInput">
+                        <input type="file" class="input-file__input js-keyfile" id="PKeyFileInput">
                       </label>
                     </div>
                   </div>
@@ -82,7 +81,7 @@
                     <div class="section__el">
                       <label class="input-file">
                         <span class="js-cert-label">Оберіть cертифікат:</span>
-                        <input type="file" class="input-file__input" id="PKCertsSelect" multiple>
+                        <input type="file" class="input-file__input js-cert" id="PKCertsSelect" multiple>
                       </label>
                     </div>
                   </div>
@@ -90,7 +89,7 @@
                     <div class="section__subtitle">Пароль:</div>
                     <div class="section__el">
                       <div class="input-pass">
-                        <input type="password" class="input-pass__input input" id="PKeyPassword" placeholder="Введіть пароль кваліфікованого підпису">
+                        <input type="password" class="input-pass__input input js-password" id="PKeyPassword" placeholder="Введіть пароль кваліфікованого підпису">
                         <div class="input-pass__icon">
                           <svg class="icon icon-password">
                             <use xlink:href="img/sprite.svg#icon-password"></use>
@@ -100,7 +99,10 @@
                     </div>
                   </div>
                   <div class="section__row">
-                    <input type="button" class="navigation__item btn-blue-icon" value="Увійти" onclick="login()">
+                    <button type="submit" class="navigation__item btn-blue-icon disabled js-login">
+                      <div class="loader js-login-loader"></div>
+                      <span class="js-login-text">Увійти</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -112,35 +114,7 @@
                   <div class="section__row">
                     <div class="section__subtitle">Регіон:</div>
                     <div class="section__el">
-                      <select class="select js-select select-serch" id="r_region">
-                        <option value>Оберіть регіон</option>
-                        <option value="1">Автономна Республіка Крим</option>
-                        <option value="5">Вінницька область</option>
-                        <option value="7">Волинська область</option>
-                        <option value="12">Дніпропетровська область</option>
-                        <option value="14">Донецька область</option>
-                        <option value="18">Житомирська область</option>
-                        <option value="21">Закарпатська область</option>
-                        <option value="23">Запорізька область</option>
-                        <option value="26">Івано-Франківська область</option>
-                        <option value="80">Київ (міськрада)</option>
-                        <option value="32">Київська область</option>
-                        <option value="35">Кіровоградська область</option>
-                        <option value="44">Луганська область</option>
-                        <option value="46">Львівська область</option>
-                        <option value="48">Миколаївська область</option>
-                        <option value="51">Одеська область</option>
-                        <option value="53">Полтавська область</option>
-                        <option value="56">Рівненська область</option>
-                        <option value="85">Севастополь (міськрада)</option>
-                        <option value="59">Сумська область</option>
-                        <option value="61">Тернопільська область</option>
-                        <option value="63">Харківська область</option>
-                        <option value="65">Херсонська область</option>
-                        <option value="68">Хмельницька область</option>
-                        <option value="71">Черкаська область</option>
-                        <option value="73">Чернівецька область</option>
-                        <option value="74">Чернігівська область</option>
+                      <select class="select js-select-region select-serch" id="r_region" disabled>
                       </select>
                     </div>
                   </div>
@@ -829,186 +803,182 @@
             </section>
             <section class="household js-household" data="section">
               <form class="form-household">
-                <div class="tabs">
-                  <ul class="tabs__nav-title tabs__nav-title--left tabs__nav-title--center tabs__nav-title--other js-room-household-tabs">
-                    <li class="is-active" data-household="1"><a href="#household-1">Домогосподарство 1</a></li>
-                  </ul>
-                  <div class="tabs__contents">
-                    <div id="household-1" class="tabs__content is-active js-tab-content">
-                      <div class="form-household__wrap">
-                        <div class="form-household__row">
-                          <h3 class="form-household__subtitle">Кількість домогосподарств, які проживають у приміщєнні:</h3>
-                          <div class="form-household__flex">
-                            <div class="radio-num">
-                              <input class="radio-num__input js-room-households" type="radio" id="households-count-1" value="1" name="r_households_count" checked>
-                              <label class="radio-num__label" for="households-count-1">1</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-room-households" type="radio" id="households-count-2" value="2" name="r_households_count">
-                              <label class="radio-num__label" for="households-count-2">2</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-room-households" type="radio" id="households-count-3" value="3" name="r_households_count">
-                              <label class="radio-num__label" for="households-count-3">3</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-room-households" type="radio" id="households-count-4" value="4" name="r_households_count">
-                              <label class="radio-num__label" for="households-count-4">4</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-room-households" type="radio" id="households-count-5" value="5" name="r_households_count">
-                              <label class="radio-num__label" for="households-count-5">5</label>
-                            </div>
-                            <input type="text" class="input-rect js-room-households_text" placeholder="Інша кількість">
+                <div class="form-household__wrap">
+                  <div class="form-household__row">
+                    <h3 class="form-household__subtitle">Кількість домогосподарств, які проживають у приміщєнні:</h3>
+                    <div class="form-household__flex">
+                      <div class="radio-num radio-num--big">
+                        <input class="radio-num__input js-room-households" type="radio" id="households-count-1" value="1" name="r_households_count" checked>
+                        <label class="radio-num__label" for="households-count-1">1</label>
+                      </div>
+                      <div class="radio-num radio-num--big">
+                        <input class="radio-num__input js-room-households" type="radio" id="households-count-2" value="2" name="r_households_count">
+                        <label class="radio-num__label" for="households-count-2">2</label>
+                      </div>
+                      <div class="radio-num radio-num--big">
+                        <input class="radio-num__input js-room-households" type="radio" id="households-count-3" value="3" name="r_households_count">
+                        <label class="radio-num__label" for="households-count-3">3</label>
+                      </div>
+                      <div class="radio-num radio-num--big">
+                        <input class="radio-num__input js-room-households" type="radio" id="households-count-4" value="4" name="r_households_count">
+                        <label class="radio-num__label" for="households-count-4">4</label>
+                      </div>
+                      <div class="radio-num radio-num--big">
+                        <input class="radio-num__input js-room-households" type="radio" id="households-count-5" value="5" name="r_households_count">
+                        <label class="radio-num__label" for="households-count-5">5</label>
+                      </div>
+                      <input type="text" class="input-rect js-room-households_text" placeholder="Інша кількість">
+                    </div>
+                  </div>
+                  <div class="form-household__row">
+                    <p class="form-household__info form-household__info--border"><strong>Домогосподарство</strong> — сукупність осіб (або одна особа), які спільно проживають в одному житловому приміщенні (або його частині), ведуть спільне господарство (мають спільні витрати на утримання житла, харчування тощо), повністю або частково об’єднують та витрачають кошти. Ці особи можуть перебувати або не перебувати у родинних стосунках.</p>
+                  </div>
+                  <h3 class="form-household__subtitle">Зазначте кількість членів у кожному домогосподарстві:</h3>
+                  <div class="form-household__scroll">
+                    <ul class="form-household__nav-title  js-room-household-tabs">
+                      <li class="is-active" data-household="1"><a href="#household-1">Домогосподарство 1</a></li>
+                    </ul>
+                    <div class="form-household__scroll-content js-room-household-details">
+                      <div class="form-household__flex">
+                        <div class="radio-num">
+                          <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-1" value="1" name="h_household1_member_count" checked data-household="1">
+                          <label class="form__subtitle radio-num__label" for="household1_member_count-1">1</label>
+                        </div>
+                        <div class="radio-num">
+                          <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-2" value="2" name="h_household1_member_count" data-household="1">
+                          <label class="form__subtitle radio-num__label" for="household1_member_count-2">2</label>
+                        </div>
+                        <div class="radio-num">
+                          <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-3" value="3" name="h_household1_member_count" data-household="1">
+                          <label class="form__subtitle radio-num__label" for="household1_member_count-3">3</label>
+                        </div>
+                        <div class="radio-num">
+                          <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-4" value="4" name="h_household1_member_count" data-household="1">
+                          <label class="form__subtitle radio-num__label" for="household1_member_count-4">4</label>
+                        </div>
+                        <div class="radio-num">
+                          <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-5" value="5" name="h_household1_member_count" data-household="1">
+                          <label class="form__subtitle radio-num__label" for="household1_member_count-5">5</label>
+                        </div>
+                        <input type="text" class="input-rect js-household-members-text" placeholder="Інша кількість" id="household1_member_count-text" data-household="1">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal js-modal">
+                    <div class="modal__overlay js-close-modal"></div>
+                    <div class="modal__content">
+                      <div class="form-household__popup">
+                        <div class="form-household__icon">
+                          <svg class="icon icon-info">
+                            <use xlink:href="img/sprite.svg#icon-info"></use>
+                          </svg>
+                        </div>
+                        <h2 class="form-household__title">Домогосподарство</h2>
+                        <div class="form-household__flex">
+                          <div class="form-household__el form-household__col">
+                            <h3 class="form-household__el-title">Назва</h3>
+                            <input type="text" id="h_name" name="h_name" class="input" placeholder="1">
+                          </div>
+                          <div class="form-household__info form-household__col">(замість номера можна ввести якусь назву, наприклад, Петренки)</div>
+                        </div>
+                        <div class="form-household__flex form-household__flex--gray form-household__flex--center">
+                          <div class="check">
+                            <input class="check__input" type="checkbox" id="h_temp_residents" value="true" name="h_temp_residents">
+                            <label class="form__subtitle check__label" for="h_temp_residents">Домогосподарство тимчасово проживаючих</label>
                           </div>
                         </div>
-                        <div class="form-household__row">
-                          <p class="form-household__info form-household__info--border"><strong>Домогосподарство</strong> — сукупність осіб (або одна особа), які спільно проживають в одному житловому приміщенні (або його частині), ведуть спільне господарство (мають спільні витрати на утримання житла, харчування тощо), повністю або частково об’єднують та витрачають кошти. Ці особи можуть перебувати або не перебувати у родинних стосунках.</p>
+                        <h3 class="form-household__subtitle">Кількість зайнятих членами домогосподарства житлових кімнат:</h3>
+                        <div class="form-household__flex">
+                          <div class="radio-num radio-num--small">
+                            <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-1" value="1" name="h_household_rooms" checked>
+                            <label class="form__subtitle radio-num__label" for="household_rooms-1">1</label>
+                          </div>
+                          <div class="radio-num radio-num--small">
+                            <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-2" value="2" name="h_household_rooms">
+                            <label class="form__subtitle radio-num__label" for="household_rooms-2">2</label>
+                          </div>
+                          <div class="radio-num radio-num--small">
+                            <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-3" value="3" name="h_household_rooms">
+                            <label class="form__subtitle radio-num__label" for="household_rooms-3">3</label>
+                          </div>
+                          <div class="radio-num radio-num--small">
+                            <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-4" value="4" name="h_household_rooms">
+                            <label class="form__subtitle radio-num__label" for="household_rooms-4">4</label>
+                          </div>
+                          <div class="radio-num radio-num--small">
+                            <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-5" value="5" name="h_household_rooms">
+                            <label class="form__subtitle radio-num__label" for="household_rooms-5">5</label>
+                          </div>
+                          <input type="text" class="input-rect js-household-rooms_text" placeholder="Інша кількість">
                         </div>
-                        <h3 class="form-household__subtitle">Зазначте кількість членів у кожному домогосподарстві:</h3>
-                        <div class="form-household__row js-room-household-details">
-                          <div class="form-household__flex">
-                            <div class="radio-num">
-                              <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-1" value="1" name="h_household1_member_count" checked data-household="1">
-                              <label class="form__subtitle radio-num__label" for="household1_member_count-1">1</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-2" value="2" name="h_household1_member_count" data-household="1">
-                              <label class="form__subtitle radio-num__label" for="household1_member_count-2">2</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-3" value="3" name="h_household1_member_count" data-household="1">
-                              <label class="form__subtitle radio-num__label" for="household1_member_count-3">3</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-4" value="4" name="h_household1_member_count" data-household="1">
-                              <label class="form__subtitle radio-num__label" for="household1_member_count-4">4</label>
-                            </div>
-                            <div class="radio-num">
-                              <input class="radio-num__input js-household-members" type="radio" id="household1_member_count-5" value="5" name="h_household1_member_count" data-household="1">
-                              <label class="form__subtitle radio-num__label" for="household1_member_count-5">5</label>
-                            </div>
-                            <input type="text" class="input-rect js-household-members-text" placeholder="Інша кількість" id="household1_member_count-text" data-household="1">
+                        <div class="form-household__flex form-household__flex--center">
+                          <div class="check">
+                            <input class="check__input" type="checkbox" id="h_household_room_parts" value="true" name="h_household_room_parts">
+                            <label class="check__label" for="h_household_room_parts">Частина кімнати</label>
                           </div>
                         </div>
-                        <div class="modal js-modal">
-                          <div class="modal__overlay js-close-modal"></div>
-                          <div class="modal__content">
-                            <div class="form-household__popup">
-                              <div class="form-household__icon">
-                                <svg class="icon icon-info">
-                                  <use xlink:href="img/sprite.svg#icon-info"></use>
-                                </svg>
+                        <div class="form-household__flex form-household__flex--gray form-household__flex--column">
+                          <h3 class="form-household__subtitle">Тип володіння житловим приміщєнням:</h3>
+                          <div class="form-household__el">
+                            <div class="radio">
+                              <input class="radio__input" type="radio" id="h_ownership_type-01" value="01" name="h_ownership_type">
+                              <label class="radio__label" for="h_ownership_type-01">приватна власність членів домогосподарства</label>
+                            </div>
+                          </div>
+                          <div class="form-household__el">
+                            <div class="radio">
+                              <input class="radio__input" type="radio" id="h_ownership_type-02" value="02" name="h_ownership_type">
+                              <label class="radio__label" for="h_ownership_type-02">державна, комунальна, приватна власність юридичних осіб</label>
+                            </div>
+                          </div>
+                          <div class="form-household__el">
+                            <div class="radio">
+                              <input class="radio__input" type="radio" id="h_ownership_type-03" value="03" name="h_ownership_type">
+                              <label class="radio__label" for="h_ownership_type-03">оренда (найм) у окремих громадян</label>
+                            </div>
+                          </div>
+                          <div class="form-household__el">
+                            <div class="radio">
+                              <input class="radio__input" type="radio" id="h_ownership_type-04" value="04" name="h_ownership_type">
+                              <label class="radio__label" for="h_ownership_type-04">не вказали тип володіння житловим приміщенням</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-household__flex form-household__flex--column">
+                          <h3 class="form-household__subtitle">Доступ домогосподарства до мережі Інтернет (включаючи мобільний)</h3>
+                          <div class="form-household__flex form-household__flex--center">
+                            <div class="form-household__col">
+                              <div class="radio">
+                                <input class="radio__input" type="radio" id="h_internet-68" value="68" name="h_internet">
+                                <label class="radio__label" for="h_internet-68">так</label>
                               </div>
-                              <h2 class="form-household__title">Домогосподарство</h2>
-                              <div class="form-household__flex">
-                                <div class="form-household__el form-household__col">
-                                  <h3 class="form-household__el-title">Назва</h3>
-                                  <input type="text" id="h_name" name="h_name" class="input" placeholder="1">
-                                </div>
-                                <div class="form-household__info form-household__col">(замість номера можна ввести якусь назву, наприклад, Петренки)</div>
-                              </div>
-                              <div class="form-household__flex form-household__flex--gray form-household__flex--center">
-                                <div class="check">
-                                  <input class="check__input" type="checkbox" id="h_temp_residents" value="true" name="h_temp_residents">
-                                  <label class="form__subtitle check__label" for="h_temp_residents">Домогосподарство тимчасово проживаючих</label>
-                                </div>
-                              </div>
-                              <h3 class="form-household__subtitle">Кількість зайнятих членами домогосподарства житлових кімнат:</h3>
-                              <div class="form-household__flex">
-                                <div class="radio-num radio-num--small">
-                                  <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-1" value="1" name="h_household_rooms" checked>
-                                  <label class="form__subtitle radio-num__label" for="household_rooms-1">1</label>
-                                </div>
-                                <div class="radio-num radio-num--small">
-                                  <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-2" value="2" name="h_household_rooms">
-                                  <label class="form__subtitle radio-num__label" for="household_rooms-2">2</label>
-                                </div>
-                                <div class="radio-num radio-num--small">
-                                  <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-3" value="3" name="h_household_rooms">
-                                  <label class="form__subtitle radio-num__label" for="household_rooms-3">3</label>
-                                </div>
-                                <div class="radio-num radio-num--small">
-                                  <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-4" value="4" name="h_household_rooms">
-                                  <label class="form__subtitle radio-num__label" for="household_rooms-4">4</label>
-                                </div>
-                                <div class="radio-num radio-num--small">
-                                  <input class="radio-num__input js-household-rooms" type="radio" id="household_rooms-5" value="5" name="h_household_rooms">
-                                  <label class="form__subtitle radio-num__label" for="household_rooms-5">5</label>
-                                </div>
-                                <input type="text" class="input-rect js-household-rooms_text" placeholder="Інша кількість">
-                              </div>
-                              <div class="form-household__flex form-household__flex--center">
-                                <div class="check">
-                                  <input class="check__input" type="checkbox" id="h_household_room_parts" value="true" name="h_household_room_parts">
-                                  <label class="check__label" for="h_household_room_parts">Частина кімнати</label>
-                                </div>
-                              </div>
-                              <div class="form-household__flex form-household__flex--gray form-household__flex--column">
-                                <h3 class="form-household__subtitle">Тип володіння житловим приміщєнням:</h3>
-                                <div class="form-household__el">
-                                  <div class="radio">
-                                    <input class="radio__input" type="radio" id="h_ownership_type-01" value="01" name="h_ownership_type">
-                                    <label class="radio__label" for="h_ownership_type-01">приватна власність членів домогосподарства</label>
-                                  </div>
-                                </div>
-                                <div class="form-household__el">
-                                  <div class="radio">
-                                    <input class="radio__input" type="radio" id="h_ownership_type-02" value="02" name="h_ownership_type">
-                                    <label class="radio__label" for="h_ownership_type-02">державна, комунальна, приватна власність юридичних осіб</label>
-                                  </div>
-                                </div>
-                                <div class="form-household__el">
-                                  <div class="radio">
-                                    <input class="radio__input" type="radio" id="h_ownership_type-03" value="03" name="h_ownership_type">
-                                    <label class="radio__label" for="h_ownership_type-03">оренда (найм) у окремих громадян</label>
-                                  </div>
-                                </div>
-                                <div class="form-household__el">
-                                  <div class="radio">
-                                    <input class="radio__input" type="radio" id="h_ownership_type-04" value="04" name="h_ownership_type">
-                                    <label class="radio__label" for="h_ownership_type-04">не вказали тип володіння житловим приміщенням</label>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-household__flex form-household__flex--column">
-                                <h3 class="form-household__subtitle">Доступ домогосподарства до мережі Інтернет (включаючи мобільний)</h3>
-                                <div class="form-household__flex form-household__flex--center">
-                                  <div class="form-household__col">
-                                    <div class="radio">
-                                      <input class="radio__input" type="radio" id="h_internet-68" value="68" name="h_internet">
-                                      <label class="radio__label" for="h_internet-68">так</label>
-                                    </div>
-                                  </div>
-                                  <div class="form-household__col">
-                                    <div class="radio">
-                                      <input class="radio__input" type="radio" id="h_internet-69" value="69" name="h_internet">
-                                      <label class="radio__label" for="h_internet-69">ні</label>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-household__btns">
-                                <button type="button" class="btn-blue-icon js-household-details-back">
-                                  <span class="btn-blue-icon__icon btn-blue-icon__icon--left">
-                                    <svg class="icon icon-arrow">
-                                      <use xlink:href="img/sprite.svg#icon-arrow"></use>
-                                    </svg>
-                                  </span>
-                                  <span class="btn-blue-icon__text">Домогосподарства</span>
-                                </button>
-                                <button type="button" class="btn-blue-icon js-household-details-next js-btn_next">
-                                  <!--								    <button type="button" class="btn-blue-icon js-household-details-next"> -->
-                                  <span class="btn-blue-icon__icon">
-                                    <svg class="icon icon-arrow">
-                                      <use xlink:href="img/sprite.svg#icon-arrow"></use>
-                                    </svg>
-                                  </span>
-                                  <span class="btn-blue-icon__text">Родинні стосунки</span>
-                                </button>
+                            </div>
+                            <div class="form-household__col">
+                              <div class="radio">
+                                <input class="radio__input" type="radio" id="h_internet-69" value="69" name="h_internet">
+                                <label class="radio__label" for="h_internet-69">ні</label>
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <div class="form-household__btns">
+                          <button type="button" class="btn-blue-icon js-household-details-back">
+                            <span class="btn-blue-icon__icon btn-blue-icon__icon--left">
+                              <svg class="icon icon-arrow">
+                                <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                              </svg>
+                            </span>
+                            <span class="btn-blue-icon__text">Домогосподарства</span>
+                          </button>
+                          <button type="button" class="btn-blue-icon js-household-details-next js-btn_next">
+                            <!--								    <button type="button" class="btn-blue-icon js-household-details-next"> -->
+                            <span class="btn-blue-icon__icon">
+                              <svg class="icon icon-arrow">
+                                <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                              </svg>
+                            </span>
+                            <span class="btn-blue-icon__text">Родинні стосунки</span>
+                          </button>
                         </div>
                       </div>
                     </div>

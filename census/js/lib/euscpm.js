@@ -681,9 +681,9 @@ var Module = {
 
 var EUSignCP = NewClass({
 	"Vendor": "JSC IIT",
-	"ClassVersion": "1.3.43",
+	"ClassVersion": "1.3.47",
 	"ClassName": "EUSignCP",
-	"BaseLibraryVersion": "1.3.1.71",
+	"BaseLibraryVersion": "1.3.1.75",
 	"errorLangCode": EU_DEFAULT_LANG,
 	"privKeyOwnerInfo": null,
 	"isFileSyncAPISupported": false,
@@ -2227,6 +2227,24 @@ function() {
 
 		return new EndUserCertificate(certInfoEx, certArrPtr.toArray());
 	},
+	CtxChangeOwnCertificatesStatus: function(
+		privateKeyContext, requestType, revocationReason) {
+		var error;
+
+		try {
+			error = Module.ccall('EUCtxChangeOwnCertificatesStatus',
+				'number',
+				['number', 'number', 'number'],
+				[privateKeyContext.GetContext(), 
+					requestType, revocationReason]);
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+
+		if (error != EU_ERROR_NONE) {
+			this.RaiseError(error);
+		}
+	},
 //-----------------------------------------------------------------------------
 	HashData: function(data, asBase64String) {
 		if ((typeof data) == 'string')
@@ -2376,11 +2394,13 @@ function() {
 		var pThis = this;
 
 		if (certificate != null)
-			this.CheckMaxDataSize(certificate);
+			pThis.CheckMaxDataSize(certificate);
 
 		if (pThis.isFileSyncAPISupported) {
 			if (!EUFS.link(file)) {
-				onError(pThis.MakeError(EU_ERROR_JS_READ_FILE));
+				setTimeout(function() {
+					onError(pThis.MakeError(EU_ERROR_JS_READ_FILE));
+				}, 1);
 				return;
 			} 
 
@@ -2405,19 +2425,25 @@ function() {
 				EUFS.unlink(file);
 				pPtr.free();
 
-				onError(pThis.MakeError(error));
+				setTimeout(function() {
+					onError(pThis.MakeError(error));
+				}, 1);
 				return;
 			}
 
 			EUFS.unlink(file);
 
 			try {
-				if (asBase64String)
-					onSuccess(this.Base64Encode(pPtr.toArray()));
-				else
-					onSuccess(pPtr.toArray());
+				var data = asBase64String ? 
+					pThis.Base64Encode(pPtr.toArray()) : 
+					pPtr.toArray();
+				setTimeout(function() {
+					onSuccess(data);
+				}, 1);
 			} catch (e) {
-				onError(e);
+				setTimeout(function() {
+					onError(e);
+				}, 1);
 			}
 		} else {
 			var _onSuccess = function(fileReaded) {
@@ -3262,7 +3288,7 @@ function() {
 
 			try {
 				timeInfo = pThis._GetFileSignTimeInfoSync(
-					signIndex, fileWithSign);
+					0, fileWithSign);
 			} catch (e) {
 				onError(e);
 				return;
@@ -3350,7 +3376,7 @@ function() {
 
 			try {
 				timeInfo = pThis._GetFileSignTimeInfoSync(
-					signIndex, signedFile);
+					0, signedFile);
 			} catch (e) {
 				onError(e);
 				return;
@@ -4604,6 +4630,31 @@ function() {
 		}
 	},
 //-----------------------------------------------------------------------------
+	IsEnvelopedData: function(enveloped) {
+		this.CheckMaxDataSize(enveloped);
+
+		if ((typeof enveloped) == 'string')
+			enveloped = this.Base64Decode(enveloped);
+
+		var isEnveloped = false;
+		var error;
+
+		try {
+			isEnveloped = (Module.ccall('EUIsEnvelopedData',
+				'number',
+				['array', 'number'],
+				[enveloped, enveloped.length]) != EU_FALSE);
+			error = EU_ERROR_NONE;
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+		
+		if (error != EU_ERROR_NONE) {
+			this.RaiseError(error);
+		}
+
+		return isEnveloped;
+	},
 	EnvelopDataEx: function (recipientCertIssuers, recipientCertSerials, 
 		signData, data, asBase64String) {
 		if ((typeof data) == 'string')
@@ -5244,7 +5295,7 @@ function() {
 		}
 
 		return new EndUserSession(pPtr.toPtr(), null);
-	},	
+	},
 	SessionEncrypt: function(session, data, asBase64String) {
 		if ((typeof data) == 'string')
 			data = this.StringToArray(data);
@@ -5670,6 +5721,221 @@ function() {
 			caType, headerTypePtr.toNumber(), 
 			headerSizePtr.toNumber(),
 			resultDataPtr.toArray());
+	},
+//-----------------------------------------------------------------------------
+	SServerClientSignHashAsync: function(
+		serverAddress, serverPort, clientID, 
+		hashDescription, hash, signAlgorithmName) {
+		var isHashStr = ((typeof hash) == 'string');
+		var pPtr = EUPointer();
+		var error;
+
+		try {
+			error = Module.ccall('EUSServerClientSignHashAsync',
+				'number',
+				['array', 'array', 'array', 'array', 
+					isHashStr ? 'array' : 'number',
+					(!isHashStr) ? 'array' : 'number',
+						'number', 'array', 'number'],
+				[UTF8ToCP1251Array(serverAddress),
+					UTF8ToCP1251Array(serverPort),
+					UTF8ToCP1251Array(clientID),
+					UTF8ToCP1251Array(hashDescription),
+					isHashStr ? StringToCString(hash) : 0,
+					!isHashStr ? hash : 0,
+					!isHashStr ? hash.length : 0,
+					UTF8ToCP1251Array(signAlgorithmName),
+					pPtr.ptr]);
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+		
+		if (error != EU_ERROR_NONE) {
+			pPtr.free();
+			this.RaiseError(error);
+		}
+
+		return pPtr.toString(true);
+	},
+	SServerClientCheckSignHashStatus: function(
+		serverAddress, serverPort, clientID, 
+		operationID, asBase64String) {
+		var pPtr = asBase64String ? 
+			EUPointer() : EUPointerArray();
+		var error;
+
+		try {
+			error = Module.ccall('EUSServerClientCheckSignHashStatus',
+				'number',
+				['array', 'array', 'array', 'array', 
+					'number', 'number', 'number'],
+				[UTF8ToCP1251Array(serverAddress),
+					UTF8ToCP1251Array(serverPort),
+					UTF8ToCP1251Array(clientID),
+					UTF8ToCP1251Array(operationID),
+					asBase64String ? pPtr.ptr : 0,
+					!asBase64String ? pPtr.ptr : 0,
+					!asBase64String ? pPtr.lengthPtr : 0]);
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+		
+		if (error != EU_ERROR_NONE) {
+			pPtr.free();
+			this.RaiseError(error);
+		}
+
+		var sign = asBase64String ? 
+			pPtr.toString(true) : pPtr.toArray();
+		return sign && (sign.length > 0) ? sign : null;
+	},
+	SServerClientGeneratePrivateKeyAsync: function(
+		serverAddress, serverPort, clientID, 
+		privateKeyDescription, 
+		uaAlgorithmName, uaDSKeyLength, useDSKeyAsKEP, uaKEPKeyLength,
+		internationalAlgorithmName, internationalKeyLength) {
+		var pPtr = EUPointer();
+		var error;
+
+		try {
+			error = Module.ccall('EUSServerClientGeneratePrivateKeyAsync',
+				'number',
+				['array', 'array', 'array', 'array', 
+					'array', 'number', 'number', 'number',
+					'array', 'number', 'number'],
+				[UTF8ToCP1251Array(serverAddress),
+					UTF8ToCP1251Array(serverPort),
+					UTF8ToCP1251Array(clientID),
+					UTF8ToCP1251Array(privateKeyDescription),
+					UTF8ToCP1251Array(uaAlgorithmName),
+					uaDSKeyLength, 
+					useDSKeyAsKEP ? 1 : 0,
+					uaKEPKeyLength, 
+					UTF8ToCP1251Array(internationalAlgorithmName),
+					internationalKeyLength,
+					pPtr.ptr]);
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+		
+		if (error != EU_ERROR_NONE) {
+			pPtr.free();
+			this.RaiseError(error);
+		}
+
+		return pPtr.toString(true);
+	},
+	SServerClientGeneratePrivateKeyAsync: function(
+		serverAddress, serverPort, clientID, 
+		privateKeyDescription, 
+		uaAlgorithmName, uaDSKeyLength, useDSKeyAsKEP, uaKEPKeyLength,
+		internationalAlgorithmName, internationalKeyLength) {
+		var pPtr = EUPointer();
+		var error;
+
+		try {
+			error = Module.ccall('EUSServerClientGeneratePrivateKeyAsync',
+				'number',
+				['array', 'array', 'array', 'array', 
+					'array', 'number', 'number', 'number',
+					'array', 'number', 'number'],
+				[UTF8ToCP1251Array(serverAddress),
+					UTF8ToCP1251Array(serverPort),
+					UTF8ToCP1251Array(clientID),
+					UTF8ToCP1251Array(privateKeyDescription),
+					UTF8ToCP1251Array(uaAlgorithmName),
+					uaDSKeyLength, 
+					useDSKeyAsKEP ? 1 : 0,
+					uaKEPKeyLength, 
+					UTF8ToCP1251Array(internationalAlgorithmName),
+					internationalKeyLength,
+					pPtr.ptr]);
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+		
+		if (error != EU_ERROR_NONE) {
+			pPtr.free();
+			this.RaiseError(error);
+		}
+
+		return pPtr.toString(true);
+	},
+	SServerClientCheckGeneratePrivateKeyStatus: function(
+		serverAddress, serverPort, clientID, operationID) {
+		var uaReqPtr = EUPointerArray();
+		var uaReqNamePtr = EUPointerMemory(EU_PATH_MAX_LENGTH);
+		var uaKEPReqPtr = EUPointerArray();
+		var uaKEPReqNamePtr = EUPointerMemory(EU_PATH_MAX_LENGTH);
+		var intReqPtr = EUPointerArray();
+		var intReqNamePtr = EUPointerMemory(EU_PATH_MAX_LENGTH);
+
+		var _free = function() {
+			uaReqPtr.free();
+			uaReqNamePtr.free();
+			uaKEPReqPtr.free();
+			uaKEPReqNamePtr.free();
+			intReqPtr.free();
+			intReqNamePtr.free();
+		}
+
+		try {
+			error = Module.ccall(
+				'EUSServerClientCheckGeneratePrivateKeyStatus',
+				'number',
+				['array', 'array', 'array', 'array', 
+					'number', 'number', 'number',
+					'number', 'number', 'number',
+					'number', 'number', 'number'],
+				[UTF8ToCP1251Array(serverAddress),
+					UTF8ToCP1251Array(serverPort),
+					UTF8ToCP1251Array(clientID),
+					UTF8ToCP1251Array(operationID),
+					uaReqPtr.ptr, uaReqPtr.lengthPtr,
+					uaReqNamePtr.ptr, 
+					uaKEPReqPtr.ptr, uaKEPReqPtr.lengthPtr, 
+					uaKEPReqNamePtr.ptr,
+					intReqPtr.ptr, intReqPtr.lengthPtr, 
+					intReqNamePtr.ptr]);
+		} catch (e) {
+			error = EU_ERROR_UNKNOWN;
+		}
+
+		if (error != EU_ERROR_NONE) {
+			_free();
+			this.RaiseError(error);
+		}
+
+		var _toString = function(strPtr) {
+			var str = CP1251PointerToUTF8(strPtr);
+			var lastInd = str.lastIndexOf("/");
+			if (lastInd <= 0)
+				return str;
+
+			return str.substring(lastInd + 1, str.length);
+		}
+
+		var uaReq = uaReqPtr.toArray();
+		var uaReqName = _toString(uaReqNamePtr.ptr);
+		var uaKEPReq = uaKEPReqPtr.toArray();
+		var uaKEPReqName = _toString(uaKEPReqNamePtr.ptr);
+		var intReq = intReqPtr.toArray();
+		var intReqName = _toString(intReqNamePtr.ptr);
+
+		if ((uaReq == null || uaReq.length == 0) && 
+			(uaKEPReq == null || uaKEPReq.length == 0) && 
+			(intReq == null || intReq.length == 0)) {
+			return null;
+		}
+
+		var euPrivateKey = EndUserPrivateKey(
+			null, null, uaReq, uaReqName, 
+			uaKEPReq, uaKEPReqName, 
+			intReq, intReqName);
+
+		_free();
+
+		return euPrivateKey;
 	}
 });
 
