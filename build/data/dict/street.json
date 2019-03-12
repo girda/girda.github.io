@@ -1,0 +1,83 @@
+[
+	{
+		"street_id" : 1,
+		"street_terson_id" : 8192,
+		"street_koatuu" : "1210100000",
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "Абхазька",
+		"street_typeold_ua" : "",
+		"street_nameold_ua" : ""
+	},
+	{
+		"street_id" : 2,
+		"street_terson_id" : 8192,
+		"street_koatuu" : "1210100000",
+		"street_type_ua" : "пров.",
+		"street_name_ua" : "Порічковий",
+		"street_typeold_ua" : "пров.",
+		"street_nameold_ua" : "Червонопролетарський"
+	},
+	{
+		"street_id" : 3,
+		"street_terson_id" : 8215,
+		"street_koatuu" : "1211000000",
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "Гуцульська",
+		"street_typeold_ua" : "",
+		"street_nameold_ua" : ""
+	},
+	{
+		"street_id" : 4,
+		"street_terson_id" : 27637,
+		"street_koatuu" : "8000000000",
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "Пріорська",
+		"street_typeold_ua" : "вул.",
+		"street_nameold_ua" : "Полупанова"
+	},
+	{
+		"street_id" : 5,
+		"street_terson_id" : 6241,
+		"street_koatuu" : "8000000000",
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "Проценко Людмили",
+		"street_typeold_ua" : "вул.",
+		"street_nameold_ua" : "Красикова Петра"
+	},
+	{
+		"street_id" : 6,
+		"street_terson_id" : 27637,
+		"street_koatuu" : "8000000000",
+		"street_type_ua" : "пров.",
+		"street_name_ua" : "Замковецький",
+		"street_typeold_ua" : "",
+		"street_nameold_ua" : ""
+	},
+	{
+		"street_id" : 7,
+		"street_terson_id" : 29700,
+		"street_koatuu" : "5110100000",
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "Колонтаївська",
+		"street_typeold_ua" : "вул.",
+		"street_nameold_ua" : "Дзержинського"
+	},
+	{
+		"street_id" : 8,
+		"street_terson_id" : 31776,
+		"street_koatuu" : "5310900000",
+		"street_type_ua" : "пров.",
+		"street_name_ua" : "Новобережанський",
+		"street_typeold_ua" : "",
+		"street_nameold_ua" : ""
+	},
+	{
+		"street_id" : 9999999,
+		"street_terson_id" : 6241,
+		"street_koatuu" : "5310900000",
+		"street_type_ua" : "пров.",
+		"street_name_ua" : "Новобережанський",
+		"street_typeold_ua" : "",
+		"street_nameold_ua" : ""
+	}
+]
