@@ -1,7 +1,7 @@
 const staticAssets = [
-    './census/index.html',
-    './census/css/app.css',
-    './census/js/app.js'
+    './index.html',
+    './css/app.css',
+    './js/app.js',
 ]
 
 self.addEventListener('install', async event => {
@@ -9,7 +9,7 @@ self.addEventListener('install', async event => {
     cache.addAll(staticAssets)
     console.log(staticAssets)
 });
-
+console.log('sw-test')
 self.addEventListener('fetch', event => {
     const req = event.request;
     const url = new URL(req.url)
