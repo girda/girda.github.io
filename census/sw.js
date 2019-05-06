@@ -1,7 +1,7 @@
 const staticAssets = [
-    './page.html',
-    './css/app.css',
-    './js/app.js',
+    'girda.github.io/page.html',
+    'girda.github.io/css/app.css',
+    'girda.github.io/js/app.js',
 ]
 
 self.addEventListener('install', async event => {
