@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+  </head>
+  <body>
+    <button>test</button>
+    <script>
+      // 1. Создаём новый объект XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
+      xhr.open('GET', 'https://girda.github.io/page.html', false);
+      // 3. Отсылаем запрос
+      xhr.send();
+      // 4. Если код ответа сервера не 200, то это ошибка
+      if (xhr.status !== 200)
+      {
+        // обработать ошибку
+        alert(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+      }
+      else
+      {
+        // вывести результат
+        alert(xhr.responseText); // responseText -- текст ответа.
+      }
+
+    </script>
+  </body>
+</html>
