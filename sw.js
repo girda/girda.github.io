@@ -1,9 +1,10 @@
 const staticAssets = [
-    './index.html',
+    './content.html',
+    './js/app.js',
 ]
 
 self.addEventListener('install', async event => {
-    const cache = await caches.open('news-static');
+    const cache = await caches.open('start');
     cache.addAll(staticAssets)
 });
 
