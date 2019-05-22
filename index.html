@@ -22,7 +22,7 @@
         font-style: normal;
     }
     :root{
-    	--main-color: #f9e900;
+    	--main-color: #38d21e;
     }
     body {
       color: #333;
@@ -186,12 +186,14 @@
       background: #f9e900;
       background: var(--main-color);
       height: 91px;
+      line-height: 91px;
+      text-align: center;
       position: relative;
       width: 242px;
       display: inline-block;
       vertical-align: top;
     }
-    header h1:before{
+    /* header h1:before{
       width: 200px;
       height: 200px;
       position: absolute;
@@ -202,7 +204,7 @@
       background: var(--main-color);
       transform: rotate(38deg);
       transform-origin: 100% 100%;
-    }
+    } */
     header h1 a{
       display: block;
       position: absolute;
@@ -258,7 +260,9 @@
     }
     .types .icon-desktop{left: 5px;}
     .types .icon-wide{left: 8px;}
-
+	.types button{
+      margin-left: 10px;
+    }
     .types button.is-active{
       border-color: #000;
       color: #fff;
@@ -406,21 +410,10 @@
     <path d="M20 0H2C.9 0 0 .9 0 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zm0 12H2V2h18v10z" fill-rule="evenodd"/>
 </symbol></svg>
   <header class="header">
-    <h1><a href="http://riverco.de">
-      <svg class="icon icon-logo"><use xlink:href="#icon-logo"></use></svg>
-    </a></h1>
+    <h1>Green Light</h1>
     
-    <div class="header__updated"><em>test</em> updated 08.05.2019, 1 pages</div>
+    <div class="header__updated"><em>test</em> updated 22.05.2019, 1 pages</div>
     <nav class="types">
-      <button data-mode="mobile" data-width="320">
-        <svg class="icon icon-mobile"><use xlink:href="#icon-mobile"></use></svg>
-        <strong>Mobile</strong>
-        <span>320px</span>
-      </button>
-      <button data-mode="ipad" data-width="900">
-        <svg class="icon icon-tablet"><use xlink:href="#icon-tablet"></use></svg>
-        <strong>Tablet</strong>
-        <span>900px</span></button>
       <button data-mode="desktop" data-width="1024">
         <svg class="icon icon-desktop"><use xlink:href="#icon-desktop"></use></svg>
         <strong>Desktop</strong>
@@ -457,9 +450,6 @@
   <aside class="preview" id="preview-wrapper">
     
     <iframe id="preview"  width="1600" height="600" src="page.html"  frameborder="0"></iframe>
-    <footer>
-      <p>Coded with ❤️ at <a href="http://riverco.de">Coderiver</a></p>
-    </footer>
   </aside>
 
 
@@ -470,7 +460,7 @@
     var iframe = document.getElementById('preview');
     var previewWrapper = document.getElementById('preview-wrapper');
     // colors
-    var colors = ['#f9e900','#ddd','#afd702','#add8e6','#f03a96'];
+    var colors = ['#38d21e', '#f9e900','#ddd','#afd702','#add8e6','#f03a96'];
 
     if(localStorage.getItem('main-color')){
     	document.documentElement.style.setProperty(`--main-color`, localStorage.getItem('main-color'));
@@ -596,3 +586,4 @@
 </html>
 
 
+
