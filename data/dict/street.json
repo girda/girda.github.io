@@ -39,7 +39,7 @@
 		"street_id" : 5,
 		"street_terson_id" : 29684,
 		"street_type_ua" : "вул.",
-		"street_name_ua" : "Йорданська ",
+		"street_name_ua" : "Йорданська",
 		"street_typeold_ua" : "вул.",
 		"street_nameold_ua" : "Лайоша Гавро",
 		"street_trial" : 1
@@ -48,7 +48,7 @@
 		"street_id" : 6,
 		"street_terson_id" : 29684,
 		"street_type_ua" : "вул.",
-		"street_name_ua" : "Малиновського Маршала ",
+		"street_name_ua" : "Малиновського Маршала",
 		"street_typeold_ua" : null,
 		"street_nameold_ua" : null,
 		"street_trial" : 1
@@ -57,7 +57,7 @@
 		"street_id" : 7,
 		"street_terson_id" : 29684,
 		"street_type_ua" : "вул.",
-		"street_name_ua" : "Тимошенка Маршала ",
+		"street_name_ua" : "Тимошенка Маршала",
 		"street_typeold_ua" : null,
 		"street_nameold_ua" : null,
 		"street_trial" : 1
@@ -87,7 +87,7 @@
 		"street_name_ua" : "Дніпроводська",
 		"street_typeold_ua" : null,
 		"street_nameold_ua" : null,
-		"street_trial" : 1
+		"street_trial" : null
 	},
 	{
 		"street_id" : 11,
@@ -219,7 +219,7 @@
 		"street_id" : 25,
 		"street_terson_id" : 21806,
 		"street_type_ua" : "вул.",
-		"street_name_ua" : "Миру ",
+		"street_name_ua" : "Миру",
 		"street_typeold_ua" : null,
 		"street_nameold_ua" : null,
 		"street_trial" : 1
@@ -453,7 +453,7 @@
 		"street_id" : 51,
 		"street_terson_id" : 21810,
 		"street_type_ua" : "вул.",
-		"street_name_ua" : "Молодіжна ",
+		"street_name_ua" : "Молодіжна",
 		"street_typeold_ua" : null,
 		"street_nameold_ua" : null,
 		"street_trial" : 1
@@ -525,7 +525,34 @@
 		"street_id" : 59,
 		"street_terson_id" : 21809,
 		"street_type_ua" : "вул.",
-		"street_name_ua" : "Х. Мар'янівка",
+		"street_name_ua" : "Х. Мар`янівка",
+		"street_typeold_ua" : null,
+		"street_nameold_ua" : null,
+		"street_trial" : 1
+	},
+	{
+		"street_id" : 60,
+		"street_terson_id" : 29684,
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "16 Садова",
+		"street_typeold_ua" : null,
+		"street_nameold_ua" : null,
+		"street_trial" : 1
+	},
+	{
+		"street_id" : 61,
+		"street_terson_id" : 29684,
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "17 Садова",
+		"street_typeold_ua" : null,
+		"street_nameold_ua" : null,
+		"street_trial" : 1
+	},
+	{
+		"street_id" : 62,
+		"street_terson_id" : 29684,
+		"street_type_ua" : "вул.",
+		"street_name_ua" : "18 Садова",
 		"street_typeold_ua" : null,
 		"street_nameold_ua" : null,
 		"street_trial" : 1

@@ -18,6 +18,7 @@
 /*jshint browser:true */
 
 (function(root, factory) {
+
   if (typeof define === 'function' && define.amd) {
     define(['jquery','sifter','microplugin'], factory);
   } else if (typeof exports === 'object') {
@@ -473,11 +474,11 @@
 	
     return tmp.innerHTML;
   };
-	
+
   var logError = function(message, options) {
     if(!options) options = {};
     var component = 'Selectize';
-	
+
     console.error(component + ': ' + message);
 	
     if(options.explanation) {
@@ -802,13 +803,12 @@
           return '<div class="item">' + escape(data[field_label]) + '</div>';
         },
         'option_create': function(data, escape) {
-          return '<div class="create">Додати <strong>' + escape(data.input) + '</strong>&hellip;</div>';
+          // return '<div class="create">Додати <strong>' + escape(data.input) + '</strong>&hellip;</div>'; // исправить здесь)
         }
       };
 	
       self.settings.render = $.extend({}, templates, self.settings.render);
     },
-	
     /**
 		 * Maps fired events to callbacks provided
 		 * in the settings used when creating the control.
