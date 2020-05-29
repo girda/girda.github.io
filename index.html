@@ -1,13 +1,427 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Nikmas</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Index page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="css/app.css" />
+  </head>
+  <body>
+    <!-- BEGIN content -->
+    <div class="out">
+      <header class="header">
+        <div class="header__top">
+          <div class="container">
+            <ul class="nav">
+              <li class="nav__item"><a href="#" class="nav__link">Услуги</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Заказать дизайн</a></li>
+              <li class="nav__item is-active"><a href="#" class="nav__link">Оплата и доставка</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">О полиграфии</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Info статьи</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Вакансии</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="header__center">
+          <div class="container">
+            <div class="header__in">
+              <div class="header__block header__block--visible-mobile">
+                <a href="#" class="logo"><img src="img/logo.png" alt="Logo"></a>
+              </div>
+              <div class="header__block">
+                <div class="language js-language">
+                  <a href="#" class="language__item is-active" data-lang="ua">ua</a>
+                  <a href="#" class="language__item" data-lang="ru">ru</a>
+                </div>
+              </div>
+              <div class="header__block">
+                <p class="metro">Дружбы Народов</p>
+                <p class="address">Бульвар Марии Приймаченко, 1\27</p>
+              </div>
+              <div class="header__block">
+                <p class="metro">Дружбы Народов</p>
+                <p class="address">Бульвар Марии Приймаченко, 1\27</p>
+              </div>
+              <div class="header__block header__block--visible-mobile">
+                <a href="tel:+380956724642" class="phone">+380 (95) 672-46-42</a>
+                <div class="block">
+                  <a href="tel:+380442238179" class="tel">+380 (44) 223-81-79</a>
+                  <a href="mailto:6724642@ukr.net" class="mail">6724642@ukr.net</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header__bottom">
+          <div class="container">
+            <div class="header__wrapper">
+              <button type="button" class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <button type="button" class="burger js-burger burger--mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="nav-product">
+                <li class="nav-product__item"><a href="#" class="nav-product__link">Полиграфическая продукция</a></li>
+                <li class="nav-product__item"><a href="#" class="nav-product__link">Студентам и диссертантам</a></li>
+                <li class="nav-product__item"><a href="#" class="nav-product__link">Плакаты и таблички</a></li>
+                <li class="nav-product__item"><a href="#" class="nav-product__link">Чертежи</a></li>
+                <li class="nav-product__item"><a href="#" class="nav-product__link">Фото и арт</a></li>
+              </ul>
+              <div class="language js-language">
+                <a href="#" class="language__item is-active" data-lang="ua">ua</a>
+                <a href="#" class="language__item" data-lang="ru">ru</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menu js-menu">
+          <ul class="nav">
+            <li class="nav__item"><a href="#" class="nav__link">Услуги</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Заказать дизайн</a></li>
+            <li class="nav__item is-active"><a href="#" class="nav__link">Оплата и доставка</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">О полиграфии</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Info статьи</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Вакансии</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+          </ul>
+          <ul class="nav-product">
+            <li class="nav-product__item"><a href="#" class="nav-product__link">Полиграфическая продукция</a></li>
+            <li class="nav-product__item"><a href="#" class="nav-product__link">Студентам и диссертантам</a></li>
+            <li class="nav-product__item"><a href="#" class="nav-product__link">Плакаты и таблички</a></li>
+            <li class="nav-product__item"><a href="#" class="nav-product__link">Чертежи</a></li>
+            <li class="nav-product__item"><a href="#" class="nav-product__link">Фото и арт</a></li>
+          </ul>
+        </div>
+      </header>
+      <main class="main">
+        <div class="hero">
+          <div class="slider js-slider">
+            <div class="slider__item">
+              <div class="slide">
+                <div class="slide__preview">
+                  <p><span>Срочная</span> печать визиток</p>
+                  <p>за 60 минут</p>
+                  <p>96 штук (комплект), от 90 грн</p>
+                </div>
+                <div class="slide__img"><img src="img/slide.jpg" alt=""></div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slide">
+                <div class="slide__preview">
+                  <p><span>Срочная</span> печать визиток</p>
+                  <p>за 40 минут</p>
+                  <p>96 штук (комплект), от 290 грн</p>
+                </div>
+                <div class="slide__img"><img src="img/slide.jpg" alt=""></div>
+              </div>
+            </div>
+            <div class="slider__item">
+              <div class="slide">
+                <div class="slide__preview">
+                  <p><span>Срочная</span> печать визиток</p>
+                  <p>за 20 минут</p>
+                  <p>96 штук (комплект), от 190 грн</p>
+                </div>
+                <div class="slide__img"><img src="img/slide.jpg" alt=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="our-client">
+          <div class="container">
+            <div class="title">
+              <h2>Наши клиенты — лидеры рынка</h2>
+              <p>К нам обращаются большие бренды, которым доверяет вся Украина</p>
+            </div>
+            <div class="slider-small js-slider-small">
+              <div class="slider-small__item"><img src="img/client1.png" alt=""></div>
+              <div class="slider-small__item"><img src="img/client2.png" alt=""></div>
+              <div class="slider-small__item"><img src="img/client3.png" alt=""></div>
+              <div class="slider-small__item"><img src="img/client1.png" alt=""></div>
+              <div class="slider-small__item"><img src="img/client2.png" alt=""></div>
+              <div class="slider-small__item"><img src="img/client3.png" alt=""></div>
+            </div>
+          </div>
+        </div>
+        <div class="polygraphy">
+          <div class="container">
+            <div class="title title--btn">
+              <div>
+                <h2 class="title__name">Оперативная полиграфия URB в Киеве H1</h2>
+                <p class="title__text">Срочная печать широкоформатная печать плакатов цифровая печать твердый переплет печать презентаций печать визиток буклетов картин</p>
+              </div>
+              <button class="btn">Смотреть все услуги</button>
+            </div>
+            <div class="polygraphy__content">
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card.jpg" alt="">
+                </div>
+                <h4 class="card__title">Цветная и ЧБ распечатка</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card2.jpg" alt="">
+                </div>
+                <h4 class="card__title">Переплет дипломов</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card3.jpg" alt="">
+                </div>
+                <h4 class="card__title">Стикеры, наклейки</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card4.jpg" alt="">
+                </div>
+                <h4 class="card__title">Блокноты</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card4.jpg" alt="">
+                </div>
+                <h4 class="card__title">Блокноты</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card3.jpg" alt="">
+                </div>
+                <h4 class="card__title">Стикеры, наклейки</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card2.jpg" alt="">
+                </div>
+                <h4 class="card__title">Переплет дипломов</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card.jpg" alt="">
+                </div>
+                <h4 class="card__title">Цветная и ЧБ распечатка</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card.jpg" alt="">
+                </div>
+                <h4 class="card__title">Цветная и ЧБ распечатка</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card2.jpg" alt="">
+                </div>
+                <h4 class="card__title">Переплет дипломов</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card3.jpg" alt="">
+                </div>
+                <h4 class="card__title">Стикеры, наклейки</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+              <a href="#" class="card">
+                <div class="card__media">
+                  <span class="card__angle"></span>
+                  <span class="card__angle card__angle--bottom"></span>
+                  <img src="img/card4.jpg" alt="">
+                </div>
+                <h4 class="card__title">Блокноты</h4>
+                <p>
+                  <span class="card__price">от 90 грн</span>
+                  <spam class="card__time">от 60 минут</spam>
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="features">
+          <div class="container">
+            <div class="features__wrapper">
+              <div class="features__item features__item--green">
+                <span class="features__angle"></span>
+                <span class="features__angle features__angle--bottom"></span>
+                <h4>2006</h4>
+                <p>Старт нашей успешной работы</p>
+              </div>
+              <div class="features__item features__item--yellow">
+                <span class="features__angle"></span>
+                <span class="features__angle features__angle--bottom"></span>
+                <h4>135</h4>
+                <p>Ориентировочное количество заказов в день</p>
+              </div>
+              <div class="features__item features__item--blue">
+                <span class="features__angle"></span>
+                <span class="features__angle features__angle--bottom"></span>
+                <h4>97</h4>
+                <p>Видов услуг и продукции для наших клиентов</p>
+              </div>
+              <div class="features__item features__item--red">
+                <span class="features__angle"></span>
+                <span class="features__angle features__angle--bottom"></span>
+                <h4>150к</h4>
+                <p>Счастливых клиентов типографии URB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="technologies">
+          <div class="container">
+            <div class="title title--btn">
+              <div>
+                <h2 class="title__name">Какие технологии мы используем в печати?</h2>
+                <p class="title__text">Посмотрите, какие виды услуг ещё можно заказать в нашей типографии</p>
+              </div>
+              <button class="btn">Смотреть все технологии</button>
+            </div>
+            <div class="technologies__wrapper">
+              <div class="technologies__items">
+                <div class="technologies__item">
+                  <img src="img/technologies1.jpg" alt="">
+                  <h5>Биговка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies2.jpg" alt="">
+                  <h5>Индексная вырубка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies3.jpg" alt="">
+                  <h5>Кашировка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies4.jpg" alt="">
+                  <h5>Лазерная гравировка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies1.jpg" alt="">
+                  <h5>Биговка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies2.jpg" alt="">
+                  <h5>Индексная вырубка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies3.jpg" alt="">
+                  <h5>Кашировка</h5>
+                </div>
+                <div class="technologies__item">
+                  <img src="img/technologies4.jpg" alt="">
+                  <h5>Лазерная гравировка</h5>
+                </div>
+              </div>
+              <div class="technologies__preview">
+                <div class="technologies__media">
+                  <iframe width="100%" height="220" src="https://www.youtube.com/embed/6Cp6mKbRTQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h5>Пару иконок или слайдер с видео технологий в работе</h5>
+                <p>Посмотрите, какие виды услуг ещё можно заказать в нашей типографии. Посмотрите, какие виды услуг ещё можно заказать в нашей типографии. Посмотрите, какие виды услуг ещё можно заказать в нашей типографии</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- 	
+	<h1>Index page</h1>
+
+	
+	
+	
+
+	
+	
+<svg class="icon icon-facebook"><use xlink:href="img/sprite.svg#icon-facebook"></use></svg>
+
+
+
+	
+		
+		
+		
+		<li>Item1</li>
+		
+		<li>Item2</li>
+		
+		 -->
+    </div>
+    <!-- END content -->
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- END scripts -->
+  </body>
 </html>
