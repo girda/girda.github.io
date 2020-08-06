@@ -1,38 +1,15 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Html-Qrcode Demo</title>
+  <meta charset="utf-8">
+  <title>Client</title>
+  <base href="/">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.538321b9a3864b3e25a5.css"></head>
 <body>
-    <div id="qr-reader" style="width:500px"></div>
-    <div id="qr-reader-results"></div>
-</body>
-<script src="/html5-qrcode.min.js"></script>
-<script>
-    function docReady(fn) {
-        // see if DOM is already available
-        if (document.readyState === "complete"
-            || document.readyState === "interactive") {
-            // call on next available tick
-            setTimeout(fn, 1);
-        } else {
-            document.addEventListener("DOMContentLoaded", fn);
-        }
-    }
-
-    docReady(function () {
-        var resultContainer = document.getElementById('qr-reader-results');
-        var lastResult, countResults = 0;
-        function onScanSuccess(qrCodeMessage) {
-            if (qrCodeMessage !== lastResult) {
-                ++countResults;
-                lastResult = qrCodeMessage;
-                resultContainer.innerHTML
-                    += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
-            }
-        }
-
-        var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
-    });
-</script>
-</head>
+  <app-root></app-root>
+<script src="runtime-es2015.0dae8cbc97194c7caed4.js" type="module"></script><script src="runtime-es5.0dae8cbc97194c7caed4.js" nomodule defer></script><script src="polyfills-es5.06b0ff63a6a213c41fa3.js" nomodule defer></script><script src="polyfills-es2015.09ee2f719bd21ab5c7b1.js" type="module"></script><script src="main-es2015.65681fcdc774e2c3c6ee.js" type="module"></script><script src="main-es5.65681fcdc774e2c3c6ee.js" nomodule defer></script></body>
 </html>
