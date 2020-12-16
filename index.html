@@ -1,15 +1,110 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Forms</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ІІТ Користувач ЦСК-1. Тестова сторінка накладання підпису на дані</title>
+
+    <!--
+        Підключення скрипта для взаємодії веб-сторінки з iframe,
+        який завантажує сторінку SignWidget
+    -->
+    <script type="text/javascript" src="eusign.js"></script>
 </head>
-<body class="mat-typography">
-  <app-root></app-root>
-<script src="runtime.js" defer></script><script src="polyfills.js" defer></script><script src="styles.js" defer></script><script src="vendor.js" defer></script><script src="main.js" defer></script></body>
+<body>
+<!--
+    Батківський елемент для відображення iframe,
+    який завантажує сторінку SignWidget
+-->
+<div id="sign-widget-parent" style="width:700px;height:500px">
+</div>
+
+<!--
+    Батківський елемент для відображення меню з підпису даних
+-->
+<div id="sign-data-block" style="display:none">
+    Дані для підпису:
+    <br>
+    <textarea id="textAreaData" style="width:510px; height:50px;"></textarea>
+    <br>
+    Підпис\Підписані дані:
+    <br>
+    <textarea id="textAreaSign" style="width:510px; height:400px;"></textarea>
+    <br>
+    <button id="buttonSignData" onclick="onSign();">Підписати</button>
+</div>
+
+<script>
+
+    //=============================================================================
+
+    /*
+        Ідентифікатор батківського елементу для відображення iframe,
+        який завантажує сторінку SignWidget
+    */
+    const SIGN_WIDGET_PARENT_ID		= "sign-widget-parent";
+    /*
+        Ідентифікатор iframe, який завантажує сторінку SignWidget
+    */
+    const SIGN_WIDGET_ID			= "sign-widget";
+    /*
+        URI з адресою за якою розташована сторінка SignWidget
+    */
+    const SIGN_WIDGET_URI			= "https://id.gov.ua/sign-widget/v20200922/";
+
+    //=============================================================================
+
+    /*
+        Створення об'єкту типу EndUser для взаємодії з iframe,
+        який завантажує сторінку SignWidget
+    */
+    var euSign = new EndUser(
+        SIGN_WIDGET_PARENT_ID,
+        SIGN_WIDGET_ID,
+        SIGN_WIDGET_URI,
+        EndUser.FormType.ReadPKey
+    );
+
+    //=============================================================================
+
+    /*
+        Накладання підпису на дані
+    */
+    function onSign() {
+        var data = document.getElementById('textAreaData').value;
+        var previousSign = null;
+        var external = true;
+        var asBase64String = true;
+        var signAlgo = EndUser.SignAlgo.DSTU4145WithGOST34311;
+        var signType = EndUser.SignType.CAdES_X_Long;
+
+        euSign.SignData(data, external,
+            asBase64String, signAlgo, null, signType)
+            .then(function(sign) {
+                document.getElementById('textAreaSign').value = sign;
+            })
+            .catch(function(e) {
+                alert('Виникла помилка при підписі даних. ' +
+                    'Опис помилки: ' + (e.message || e));
+            });
+    };
+
+    /*
+        Очікування зчитування ос. ключа користувачем
+    */
+    window.onload = function() {
+        euSign.ReadPrivateKey()
+            .then(function () {
+                document.getElementById('sign-widget-parent').style.display = 'none';
+                document.getElementById('sign-data-block').style.display = 'block';
+            })
+            .catch(function(e) {
+                alert('Виникла помилка при зчитуванні ос. ключа. ' +
+                    'Опис помилки: ' + (e.message || e));
+            });
+    };
+
+    //=============================================================================
+
+</script>
+</body>
 </html>
