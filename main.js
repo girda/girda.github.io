@@ -65,9 +65,10 @@ class ModalAddressComponent {
     }
 }
 ModalAddressComponent.ɵfac = function ModalAddressComponent_Factory(t) { return new (t || ModalAddressComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_0__["MAT_DIALOG_DATA"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_0__["MatDialogRef"])); };
-ModalAddressComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ModalAddressComponent, selectors: [["app-modal-confirm"]], decls: 2, vars: 0, consts: [[1, "modal-address", 2, "position", "fixed", "bottom", "0"], ["type", "text"]], template: function ModalAddressComponent_Template(rf, ctx) { if (rf & 1) {
+ModalAddressComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ModalAddressComponent, selectors: [["app-modal-confirm"]], decls: 3, vars: 0, consts: [[1, "modal-address", 2, "position", "fixed", "bottom", "0"], ["type", "text"]], template: function ModalAddressComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "input", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " \u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430 ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "input", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtb2RhbC1hZGRyZXNzLmNvbXBvbmVudC5zY3NzIn0= */"] });
 
