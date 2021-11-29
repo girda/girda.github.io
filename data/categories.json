@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Торти",
+    "imageUrl": "./img/cake.png",
+    "id": 1
+  },
+  {
+    "name": "Десерти",
+    "imageUrl": "./img/desserts.png",
+    "id": 2
+  },
+  {
+    "name": "Печиво",
+    "imageUrl": "./img/biscuits.png",
+    "id": 3
+  },
+  {
+    "name": "Цукерки",
+    "imageUrl": "./img/candies.png",
+    "id": 4
+  },
+  {
+    "name": "Квіти",
+    "imageUrl": "./img/flowers.png",
+    "id": 5
+  }
+]
